@@ -21,4 +21,5 @@ Metrics/LineLength:
   Exclude:
     - 'bin/*'
     - 'config/**/*'
+    - 'db/schema.rb'
   Max: 90
