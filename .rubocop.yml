@@ -1,6 +1,10 @@
 Metrics/AbcSize:
   Max: 18
 
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*'
+
 Metrics/CyclomaticComplexity:
   Max: 9
 
