@@ -1,3 +1,5 @@
 %header.header
   -if current_user
+    - unless controller_path.include?('landing')
+      = link_to 'Inicio', root_path
     = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete
