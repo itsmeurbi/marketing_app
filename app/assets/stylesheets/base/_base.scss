@@ -1,0 +1,10 @@
+html, body {
+  width: 100%;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: $regular-padding $regular-padding 0;
+}
