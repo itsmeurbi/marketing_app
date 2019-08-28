@@ -1,10 +1,10 @@
-.column.is-two-thirds-tablet.is-two-fifths-desktop.is-one-quarter-fullhd
+.column.is-two-thirds-tablet.is-one-third-desktop.is-one-quarter-fullhd
   %h2
     Inicio de sesión
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-inputs
       = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email" }, label: 'E-mail'
       = f.input :password, required: false, input_html: { autocomplete: "current-password" }, label: 'Contraseña'
-    .form-actions
-      = f.button :submit, "Iniciar sesión"
+    .form-actions.is-flex.is-justified-centered
+      = f.button :submit, "Iniciar sesión", class: 'is-primary'
   = render "devise/shared/links"
