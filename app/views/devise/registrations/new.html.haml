@@ -1,11 +1,15 @@
-%h2 Sign up
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } |
-    = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }
-    = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } |
-    = f.select :role, User.roles.keys, include_blank: false
-  .form-actions
-    = f.button :submit, "Sign up"
-= render "devise/shared/links"
+.column.is-two-thirds-tablet.is-one-third-desktop.is-one-quarter-fullhd
+  %h2
+    Registro
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, label: 'E-mail'
+      = f.input :password, required: true, hint: ("#{@minimum_password_length} caracteres mínimos" if @minimum_password_length), input_html: { autocomplete: "new-password" }, label: 'Contraseña'
+      = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, label: 'Confirma tu contraseña'
+      .is-flex.is-justified-centered
+        .select
+          = f.select :role, User.roles.keys, include_blank: false
+    .form-actions.is-flex.is-justified-centered
+      = f.button :submit, "Registrarse", class: 'is-primary'
+  = render "devise/shared/links"
