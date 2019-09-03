@@ -1,9 +1,10 @@
-%h2= t "devise.invitations.edit.header"
+%h2
+  Define tus credenciales
 = simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f|
   = f.error_notification
   = f.hidden_field :invitation_token
   .form-inputs
-    = f.input :password
-    = f.input :password_confirmation
+    = f.input :password, label:'Contraseña'
+    = f.input :password_confirmation, label: 'Repite tu contraseña'
   .form-actions
-    = f.button :submit, t("devise.invitations.edit.submit_button")
+    = f.button :submit, 'Crear cuenta', class: 'is-primary'
