@@ -7,7 +7,7 @@ en:
       send_instructions: "En unos minutos recibirás un correo con instrucciones para confirmar tu cuenta"
       send_paranoid_instructions: "Si to correo esta en nuestro sistema, en unos minutos recibiras un correo con instrucciones para confirmar tu cuenta"
     failure:
-      already_authenticated: "Ta iniciaste sesión"
+      already_authenticated: "Ya iniciaste sesión"
       inactive: "Tu cuenta no ha sido activada aún"
       invalid: "%{authentication_keys} o contraseña invalidos"
       locked: "Tu cuenta se encuentra bloqueada"
@@ -19,6 +19,13 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Instrucciones de confirmación"
+      invitation_instructions:
+        accept: Aceptar invitación
+        accept_until: aceptalo esta invitación antes de  %{due_date}
+        hello: Hola %{email}
+        ignore: Si no estas interesado, puedes solo ignorar este correo. Tu cuenta no será creada hasta entonces
+        someone_invited_you: Te han invitado a %{url} para formar parte de su equipo. Da click en el enlace de abajo para aceptar esta invitación
+        subject: "Instruciones de la invitación"
       reset_password_instructions:
         subject: "Instrucciones de restablecimiento de contraseña"
       unlock_instructions:
@@ -27,6 +34,17 @@ en:
         subject: "Correo actualizado"
       password_change:
         subject: "Contraseña actualizada"
+    invitations:
+      send_instructions: "Una invitación de correo se ha enviado para %{email}."
+      invitation_token_invalid: "El token de invitación no es valido!"
+      updated: "Tu contraseña se ha captura con éxito, ya te encuentras dentro del sistema."
+      no_invitations_remaining: "No quedan más invitaciones"
+      new:
+        header: "Enviar Invitación"
+        submit_button: "Envia una invitación"
+      edit:
+        header: "Establecer contraseña"
+        submit_button: "Guardar mi contraseña"
     omniauth_callbacks:
       failure: "No fue posible autenticarte desde %{kind} debido a \"%{reason}\"."
       success: "Autenticado desde tu cuenta %{kind}"
