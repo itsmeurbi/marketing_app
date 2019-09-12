@@ -2,12 +2,12 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-      resources :users
-      resources :companies
-      resources :corporations
+    resources :users
+    resources :companies
+    resources :corporations
 
-      root to: "users#index"
-    end
+    root to: 'users#index'
+  end
 
   resources :companies
   resources :corporations
