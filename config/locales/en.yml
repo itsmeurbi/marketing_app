@@ -1,2 +1,6 @@
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user: Usuario
+      company: Compañia
+      corporation: Corporaciones
