@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
-  resources :companies
-  resources :corporations
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'landing_page#index'
 end
