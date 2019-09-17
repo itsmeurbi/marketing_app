@@ -7,5 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :invitable
 
   roles_attribute :roles_mask
-  roles :owner, :leader, :attender
+  roles :owner, :company, :comunnity_manager, :content_creator, :designer
 end

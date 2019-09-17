@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users
     resources :companies
     resources :corporations
+    resources :campains
 
     root to: 'users#index'
   end

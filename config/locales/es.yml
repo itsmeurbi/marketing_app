@@ -2,5 +2,6 @@ es:
   activerecord:
     models:
       user: Usuarios
+      campain: Campañas
       company: Compañias
       corporation: Corporaciones
