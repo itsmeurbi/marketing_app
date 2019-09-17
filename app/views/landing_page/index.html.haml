@@ -1,37 +1,3 @@
 .column.is-full
   %h1
     Welcome to landing page
-  =link_to 'Agregar corporación', new_corporation_path
-  = link_to 'Nueva compañia', new_company_path
-
-  %h2
-    Corporaciones
-  %table
-    %tr
-      %th
-        Nombre
-      %th
-        Acciones
-    - @corporations.each do |corporation|
-      %tr
-        %td
-          = link_to  corporation.name, corporation_path(corporation)
-        %td
-          = link_to 'Editar', edit_corporation_path(corporation)
-          = link_to 'Eliminar', corporation_path(corporation), method: :delete, data: { confirm: '¿Estás seguro?' }
-
-  %h2
-    Compañias
-  %table
-    %tr
-      %th
-        Nombre
-      %th
-        Acciones
-    - @companies.each do |company|
-      %tr
-        %td
-          = link_to company.name, company_path(company)
-        %td
-          = link_to 'Editar', edit_company_path(company)
-          = link_to 'Eliminar', company_path(company), method: :delete, data: { confirm: '¿Estás seguro?' }
