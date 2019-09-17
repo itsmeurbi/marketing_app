@@ -1,0 +1,9 @@
+owner:
+  email: awoner_user@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'ownerUser') %>
+  roles_mask: 1
+
+designer:
+  email: designer@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'designerUser') %>
+  roles_mask: 16
