@@ -1,6 +1,6 @@
-en:
+es:
   activerecord:
     models:
-      user: Usuario
-      company: Compañia
+      user: Usuarios
+      company: Compañias
       corporation: Corporaciones

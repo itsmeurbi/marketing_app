@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.0'
+gem 'role_model'
 gem 'sass-rails', '~> 5'
 gem 'scss_lint', require: false
 gem 'simple_form'

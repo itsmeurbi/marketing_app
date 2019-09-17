@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_173405) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "role"
+    t.integer "roles_mask"
     t.string "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
