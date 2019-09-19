@@ -3,9 +3,8 @@
 class User < ApplicationRecord
   include RoleModel
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :invitable
+  devise :database_authenticatable, :recoverable, :invitable
 
   roles_attribute :roles_mask
-  roles :owner, :company, :comunnity_manager, :content_creator, :designer
+  roles :owner, :company, :comunnity_manager, :content_creator, :designer, :rrhh
 end

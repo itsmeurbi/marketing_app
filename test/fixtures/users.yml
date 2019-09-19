@@ -7,3 +7,13 @@ designer:
   email: designer@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'designerUser') %>
   roles_mask: 16
+
+rrhh:
+  email: rrhh@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'rrhhUser') %>
+  roles_mask: 32
+
+company:
+  email: manage@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'rrhhUser') %>
+  roles_mask: 2
