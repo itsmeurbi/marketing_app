@@ -19,7 +19,7 @@ class UserDashboard < Administrate::BaseDashboard
     remember_created_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    role: Field::String.with_options(searchable: false),
+    roles_mask: Field::Number,
     invitation_token: Field::String,
     invitation_created_at: Field::DateTime,
     invitation_sent_at: Field::DateTime,
@@ -51,7 +51,7 @@ class UserDashboard < Administrate::BaseDashboard
     remember_created_at
     created_at
     updated_at
-    role
+    roles_mask
     invitation_token
     invitation_created_at
     invitation_sent_at
@@ -69,7 +69,7 @@ class UserDashboard < Administrate::BaseDashboard
     reset_password_token
     reset_password_sent_at
     remember_created_at
-    role
+    roles_mask
     invitation_token
     invitation_created_at
     invitation_sent_at
