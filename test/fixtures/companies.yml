@@ -1,4 +1,3 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 microsoft:
   name: Microsoft
@@ -6,4 +5,6 @@ microsoft:
   legal_representant_email: aaron@marketing.io
   legal_representant_phone: 312-002-0000
   legal_representant_role: CTO
-
+  bussines_name: Microsoft SA
+  rfc: 1233HGDJ476KJHAU7
+  location: Cupertino

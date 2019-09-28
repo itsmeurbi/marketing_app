@@ -13,7 +13,14 @@ class CompanyDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    legal_representant_name: Field::String,
+    legal_representant_email: Field::String,
+    legal_representant_phone: Field::String,
+    legal_representant_role: Field::String,
+    bussines_name: Field::String,
+    rfc: Field::String,
+    location: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -35,6 +42,13 @@ class CompanyDashboard < Administrate::BaseDashboard
     name
     created_at
     updated_at
+    legal_representant_name
+    legal_representant_email
+    legal_representant_phone
+    legal_representant_role
+    bussines_name
+    rfc
+    location
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -42,6 +56,13 @@ class CompanyDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
+    legal_representant_name
+    legal_representant_email
+    legal_representant_phone
+    legal_representant_role
+    bussines_name
+    rfc
+    location
   ].freeze
 
   # COLLECTION_FILTERS
