@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Finance
   class ApplicationController < Administrate::ApplicationController
@@ -6,7 +7,5 @@ module Finance
     def authenticate_admin
       redirect_to root_path unless user_signed_in? && current_user.is_finance?
     end
-
-
   end
 end
