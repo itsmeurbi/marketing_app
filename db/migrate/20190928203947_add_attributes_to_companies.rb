@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAttributesToCompanies < ActiveRecord::Migration[6.0]
   def change
     add_column :companies, :legal_representant_name, :string, null: false

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Finance
   class CompaniesController < Finance::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
