@@ -10,10 +10,17 @@ class CampainDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    manager: Field::BelongsTo.with_options(class_name: 'User'),
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    start_date: Field::DateTime,
+    end_date: Field::DateTime,
+    objective: Field::String,
+    type: Field::Number,
+    product: Field::String,
+    manager_id: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -22,26 +29,40 @@ class CampainDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
+    manager
     id
     name
     created_at
-    updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    manager
     id
     name
     created_at
     updated_at
+    start_date
+    end_date
+    objective
+    type
+    product
+    manager_id
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    manager
     name
+    start_date
+    end_date
+    objective
+    type
+    product
+    manager_id
   ].freeze
 
   # COLLECTION_FILTERS
