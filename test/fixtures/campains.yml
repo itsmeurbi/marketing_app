@@ -1,0 +1,10 @@
+iphone_campain:
+  name: 'iPhone 11'
+  start_date: <%= Time.now %>
+  end_date: <%= Time.now + 1.week %>
+  objective: 'Promocionar neuvo producto'
+  campain_type: 1
+  product: 'iPhone11'
+  manager: manager
+
+
