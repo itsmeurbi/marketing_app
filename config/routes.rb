@@ -2,23 +2,24 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-    resources :campains
+    resources :campains, except: %i[destroy]
     root to: 'campains#index'
   end
 
   namespace :rrhh do
-    resources :users
+    resources :users, except: %i[destroy]
     root to: 'users#index'
   end
 
-  namespace :manage do
-    resources :campains
-    root to: 'campains#index'
+  namespace :finance do
+    resources :companies, except: %i[destroy]
+    resources :corporations, except: %i[destroy]
+    root to: 'companies#index'
   end
 
-  namespace :finance do
-    resources :companies
-    resources :corporations
+  namespace :community do
+    resources :campains, only: %i[index show]
+    root to: 'campains#index'
   end
 
   devise_for :users, controllers: { registrations: 'registrations' }

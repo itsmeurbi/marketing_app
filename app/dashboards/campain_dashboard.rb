@@ -18,7 +18,7 @@ class CampainDashboard < Administrate::BaseDashboard
     start_date: Field::DateTime,
     end_date: Field::DateTime,
     objective: Field::String,
-    type: Field::Number,
+    campain_type: Field::Number,
     product: Field::String,
     manager_id: Field::Number
   }.freeze
@@ -46,7 +46,7 @@ class CampainDashboard < Administrate::BaseDashboard
     start_date
     end_date
     objective
-    type
+    campain_type
     product
     manager_id
   ].freeze
@@ -60,7 +60,7 @@ class CampainDashboard < Administrate::BaseDashboard
     start_date
     end_date
     objective
-    type
+    campain_type
     product
     manager_id
   ].freeze
