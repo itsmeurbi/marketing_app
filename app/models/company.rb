@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
+  has_many :employees, class_name: 'User'
   validates :name,
             :legal_representant_name,
             :legal_representant_email,
