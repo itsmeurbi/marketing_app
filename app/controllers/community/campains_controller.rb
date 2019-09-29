@@ -10,6 +10,7 @@ module Community
 
     def show
       @campain = current_user.campains.find(params[:id])
+      @coworker = @campain.coworkers.build
     end
   end
 end

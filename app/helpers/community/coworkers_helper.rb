@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 module Community
-  module CampainsHelper
+  module CoworkersHelper
   end
 end

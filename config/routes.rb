@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   end
 
   namespace :community do
-    resources :campains, only: %i[index show]
+    resources :campains, only: %i[index show] do
+      resources :coworkers
+    end
     root to: 'campains#index'
   end
 
