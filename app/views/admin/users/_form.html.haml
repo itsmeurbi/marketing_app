@@ -1,0 +1,6 @@
+= simple_form_for(page.resource, url: admin_users_path, method: :post) do |f|
+  = f.label :email
+  = f.input :email, wrapper_html: { class: 'field-unit' }
+  = f.label :roles_mask, 'Rol'
+  = f.input :roles_mask, collection: { RRHH: 32, Finanzas: 64 }, include_blank: false, wrapper_html: { class: 'select field-unit' }
+  = f.button :submit, 'Registrar'
