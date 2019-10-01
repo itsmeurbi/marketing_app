@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'administrate', git: 'https://github.com/thoughtbot/administrate.git'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bulma-rails'
 gem 'devise'
@@ -14,6 +15,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.0'
+gem 'role_model'
 gem 'sass-rails', '~> 5'
 gem 'scss_lint', require: false
 gem 'simple_form'
@@ -22,6 +24,7 @@ gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry'
 end
 
 group :development do

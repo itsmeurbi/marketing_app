@@ -1,8 +1,29 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :companies
+  namespace :admin do
+    resources :campains, except: %i[destroy]
+    root to: 'campains#index'
+  end
+
+  namespace :rrhh do
+    resources :users, except: %i[destroy]
+    root to: 'users#index'
+  end
+
+  namespace :finance do
+    resources :companies, except: %i[destroy]
+    resources :corporations, except: %i[destroy]
+    root to: 'companies#index'
+  end
+
+  namespace :community do
+    resources :campains, only: %i[index show] do
+      resources :coworkers
+    end
+    root to: 'campains#index'
+  end
+
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'landing_page#index'
-  resources :corporations
 end

@@ -31,6 +31,13 @@
           .buttons
             -if current_user
               - unless controller_path.include?('landing')
-                = link_to 'Inicio', root_path , :class=>"button is-primary"
-              = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class=>"button is-light"
-              = link_to 'Invitar', new_user_invitation_path, :class=>"button is-light"
+                = link_to 'Inicio', root_path, :class=>"button is-primary"
+              - if current_user.is_owner?
+                = link_to 'Admin dashboard', admin_campains_path, :class=>"button is-primary"
+              - if current_user.is_rrhh?
+                = link_to 'RRRHH dashboard', rrhh_users_path, :class=>"button is-primary"
+              - if current_user.is_finance?
+                = link_to 'Finance dashboar', finance_companies_path, :class=>"button is-primary"
+              - if current_user.is_community_manager?
+                = link_to 'Community dashboard', community_campains_path, :class=>"button is-primary"
+              = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete
