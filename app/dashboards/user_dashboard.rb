@@ -19,7 +19,9 @@ class UserDashboard < Administrate::BaseDashboard
     remember_created_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    roles_mask: Field::Number,
+    roles_mask: CollectionSelectField.with_options(collection: User.valid_roles,
+                                                   value_method: 'id',
+                                                   text_method: 'email'),
     invitation_token: Field::String,
     invitation_created_at: Field::DateTime,
     invitation_sent_at: Field::DateTime,
@@ -33,10 +35,9 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    invited_by
     id
+    roles_mask
     email
-    encrypted_password
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,36 +46,17 @@ class UserDashboard < Administrate::BaseDashboard
     invited_by
     id
     email
-    encrypted_password
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
     created_at
     updated_at
     roles_mask
-    invitation_token
-    invitation_created_at
-    invitation_sent_at
-    invitation_accepted_at
-    invitation_limit
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    invited_by
     email
-    encrypted_password
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
     roles_mask
-    invitation_token
-    invitation_created_at
-    invitation_sent_at
-    invitation_accepted_at
-    invitation_limit
   ].freeze
 
   # COLLECTION_FILTERS
