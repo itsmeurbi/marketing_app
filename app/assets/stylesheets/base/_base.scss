@@ -1,0 +1,23 @@
+html,
+body {
+  width: 100%;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: $regular-padding $regular-padding 0;
+}
+
+.is-justified-centered {
+  justify-content: center;
+}
+
+.hint {
+  font-size: .7em;
+}
+
+.has-regular-margin {
+  margin: $regular-margin;
+}

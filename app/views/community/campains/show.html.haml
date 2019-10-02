@@ -1,0 +1,22 @@
+%h1
+  = @campain.name
+
+%p=@campain.objective
+%p=@campain.start_date
+%p=@campain.end_date
+%p=@campain.campain_type
+%p=@campain.product
+
+
+%p
+  Posible Neo4j here
+
+%h3
+  Coworkers
+- @campain.coworkers.each do |coworker|
+  %p=coworker.user&.email
+
+= simple_form_for(@coworker, url: community_campain_coworkers_path(@campain), method: :post, defaults: { wrapper: false }) do |f|
+  = f.input :user, collection: current_user.company.employees
+  = f.input :role, input_html: { class: 'is-hidden' }
+  = f.submit 'Registrar', class: 'button is-primary'

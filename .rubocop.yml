@@ -1,6 +1,12 @@
 Metrics/AbcSize:
   Max: 18
 
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*'
+    - 'db/schema.rb'
+    - 'config/initializers/*'
+
 Metrics/CyclomaticComplexity:
   Max: 9
 
@@ -23,3 +29,19 @@ Metrics/LineLength:
     - 'config/**/*'
     - 'db/schema.rb'
   Max: 90
+
+Style/StringLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/schema.rb'
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'

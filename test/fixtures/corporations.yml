@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+microsoft:
+  name: Microsoft
+  legal_representant_name: Aaron Barrero
+  legal_representant_email: aaron@marketing.io
+  legal_representant_phone: 312-002-0000
+  legal_representant_role: CTO
+

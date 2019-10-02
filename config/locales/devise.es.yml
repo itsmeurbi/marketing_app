@@ -1,0 +1,81 @@
+es:
+  devise:
+    confirmations:
+      confirmed: "Tu correo has sido confirmado"
+      send_instructions: "En unos minutos recibirás un correo con instrucciones para confirmar tu cuenta"
+      send_paranoid_instructions: "Si to correo esta en nuestro sistema, en unos minutos recibiras un correo con instrucciones para confirmar tu cuenta"
+    failure:
+      already_authenticated: "Ya iniciaste sesión"
+      inactive: "Tu cuenta no ha sido activada aún"
+      invalid: "%{authentication_keys} o contraseña invalidos"
+      locked: "Tu cuenta se encuentra bloqueada"
+      last_attempt: "Tienes un último intento antes de que tu cuenta sea bloqueada"
+      not_found_in_database: "%{authentication_keys} o contraeña invalidos"
+      timeout: "Tu sesión ha expirado, por favor inicia sesión de nuevo"
+      unauthenticated: "Debes registrarte o iniciar sesión antes de continuar"
+      unconfirmed: "Debes confirmar tu cuenta antes de continuar"
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      invitation_instructions:
+        accept: Aceptar invitación
+        accept_until: aceptalo esta invitación antes de  %{due_date}
+        hello: Hola %{email}
+        ignore: Si no estas interesado, puedes solo ignorar este correo. Tu cuenta no será creada hasta entonces
+        someone_invited_you: Te han invitado a %{url} para formar parte de su equipo. Da click en el enlace de abajo para aceptar esta invitación
+        subject: "Instruciones de la invitación"
+      reset_password_instructions:
+        subject: "Instrucciones de restablecimiento de contraseña"
+      unlock_instructions:
+        subject: "Instrucciones de desbloqueo"
+      email_changed:
+        subject: "Correo actualizado"
+      password_change:
+        subject: "Contraseña actualizada"
+    invitations:
+      send_instructions: "Una invitación de correo se ha enviado para %{email}."
+      invitation_token_invalid: "El token de invitación no es valido!"
+      updated: "Tu contraseña se ha captura con éxito, ya te encuentras dentro del sistema."
+      no_invitations_remaining: "No quedan más invitaciones"
+      new:
+        header: "Enviar Invitación"
+        submit_button: "Envia una invitación"
+      edit:
+        header: "Establecer contraseña"
+        submit_button: "Guardar mi contraseña"
+    omniauth_callbacks:
+      failure: "No fue posible autenticarte desde %{kind} debido a \"%{reason}\"."
+      success: "Autenticado desde tu cuenta %{kind}"
+    passwords:
+      no_token: "No puedes acceder a esta pagina si no provienes de un correo de restablecimiento de contraseña. Asegúrate de estar usando el URL completo"
+      send_instructions: "En unos minutos recibiras un correo con las instrucciones para restablecer tu contraseña"
+      send_paranoid_instructions: "Si to correo esta en nuestro sistema, en unos minutos recibiras un correo con instrucciones para confirmar tu cuenta"
+      updated: "Tu contraseña fue actualizada correctamente. Se ha iniciado sesión"
+      updated_not_active: "Tu contraseña fue actualizada correctamente"
+    registrations:
+      destroyed: "Tu cuenta ha sido cancelada correctamente"
+      signed_up: "¡Bienvenido! Te has registrado correctamente"
+      signed_up_but_inactive: "Te has registrado correctamente, sin embargo no puedes iniciar sesión hasta que confirmes tu cuenta"
+      signed_up_but_locked: "Te has registrado correctamente, sin embargo no puedes iniciar sesión porque tu cuenta se encuentra bloqueada"
+      signed_up_but_unconfirmed: "Un mensaje con un link de confirmasión ha sido enviado. Sigue las instrucciones del mensaje para activar tu cuenta"
+      update_needs_confirmation: "Has actualizado tu cuenta correctamente, sin embargo necesitamos verificar tu correo electrónico. Por favor revisa tu correo y sigue las instrucciones para confirmar tu cuenta"
+      updated: "Tu cuenta ha sido actualizada correctamente"
+      updated_but_not_signed_in: "Tu cuenta ha sido actualizada correctamente. Debido a que tu contraseña ha sido atualizada, debes iniciar sesión nuevamente"
+    sessions:
+      signed_in: "Sesión iniciada"
+      signed_out: "Sesión cerrada"
+      already_signed_out: "Sesión cerrada"
+    unlocks:
+      send_instructions: "En unos minutos recibiras un correo con instrucciones para debloquear tu cuenta"
+      send_paranoid_instructions: "Si tu correo existe en nuestro sistema, en unos minutos recibiras un correo con las instrucciones para desbloquear tu cuenta"
+      unlocked: "Tu cuenta ha sido desbloqueada correctamente. Inicia sesión para continuar"
+  errors:
+    messages:
+      already_confirmed: "ya ha sido confirmada correctamente. Inicia sesión para continuar"
+      confirmation_period_expired: "debe ser confirmada antes de %{period}, por favor, solicita uno nuevo"
+      expired: "ha expirado, por favor solicita uno nuevo"
+      not_found: "no encontrado"
+      not_locked: "no ha sido bloqueada"
+      not_saved:
+        one: "1 error impidio al recurso %{resource} ser guardado:"
+        other: "%{count} errores impidieron al recurso %{resource} ser guardado:"
