@@ -38,17 +38,15 @@ class CampainDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    manager
-    id
     name
+    manager
+    product
+    campain_type
+    objective
     created_at
     updated_at
     start_date
     end_date
-    objective
-    campain_type
-    product
-    manager_id
   ].freeze
 
   # FORM_ATTRIBUTES
