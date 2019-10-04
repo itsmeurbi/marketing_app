@@ -40,4 +40,4 @@
                 = link_to 'Finance dashboar', finance_companies_path, :class=>"button is-primary"
               - if current_user.is_community_manager?
                 = link_to 'Community dashboard', community_campains_path, :class=>"button is-primary"
-              = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete
+              = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class=>"button is-primary"
