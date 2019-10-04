@@ -5,3 +5,28 @@ es:
       campain: Campañas
       company: Compañias
       corporation: Corporaciones
+  helpers:
+    label:
+      campain:
+        name: Nombre
+        start_date: "Fecha de inicio:"
+        end_date: "Fecha de término:"
+        objective: "Objetivo:"
+        campain_type: "Tipo de campaña:"
+        product: "Producto:"
+        manager: "Community Manager:"
+        updated_at: "Última actualización:"
+        created_at: "Creada:"
+      user:
+        updated_at: "Última actualización:"
+        created_at: "Creado:"
+        roles_mask: "Roles:"
+  user:
+    roles:
+      owner: Dueño
+      company: Compañia
+      community_manager: Community manager
+      content_creator: Creador de contenido
+      designer: Diseñador
+      rrhh: RRHH
+      finance: Finanzas

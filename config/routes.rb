@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :campains, except: %i[destroy]
+    resources :users, except: %i[edit]
     root to: 'campains#index'
   end
 

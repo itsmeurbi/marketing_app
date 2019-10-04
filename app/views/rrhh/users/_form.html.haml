@@ -1,0 +1,6 @@
+= simple_form_for(page.resource, url: rrhh_users_path, method: :post) do |f|
+  = f.label :email
+  = f.input :email, wrapper_html: { class: 'field-unit' }, placeholder: 'Email del empleado'
+  = f.label :roles_mask, 'Roles del empleado'
+  = f.input :roles_mask, collection: User.valid_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, input_html: { class: 'is-multiple', multiple: true}, wrapper_html: { class: "select is-multiple" }
+  = f.button :submit, 'Registrar'

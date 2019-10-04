@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Rrhh
-  class UsersController < Rrhh::ApplicationController
+module Admin
+  class UsersController < Admin::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
@@ -13,13 +13,13 @@ module Rrhh
     def create
       user = User.invite!(email: params[:user][:email],
                           company: current_user.company,
-                          roles_mask: role_mask)
+                          roles_mask: params[:user][:roles_mask])
       if user.valid?
         flash[:notice] = 'El usuario fue registrado correctamente'
       else
         flash[:alert] = 'Error registrando al usuario'
       end
-      redirect_to rrhh_users_path
+      redirect_to admin_users_path
     end
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
@@ -40,12 +40,11 @@ module Rrhh
     #  end
     # end
 
+    def scoped_resource
+      User.rrhh_and_finance_in_company(current_user.company)
+    end
+
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
-    private
-
-    def role_mask
-      User.mask_for params[:user][:roles_mask].map(&:to_sym)
-    end
   end
 end

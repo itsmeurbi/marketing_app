@@ -1,0 +1,9 @@
+<div class="">
+  <label>Roles</label>
+  <div class="column is-flex is-justified-space-between is-aligned-center">
+    <%- User.valid_roles.map do |role| %>
+      <label for="<%= role %>%"><%= role %></label>
+      <input type="checkbox" name="role" value="<%= User.mask_for(role) %>">
+    <%- end %>
+  </div>
+</div>

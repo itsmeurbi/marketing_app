@@ -1,0 +1,1 @@
+<%= User.roles_from_mask(field.data).map{ |role| t("user.roles.#{role.to_s}") }.join(', ') %>
