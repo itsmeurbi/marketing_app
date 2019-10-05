@@ -60,7 +60,6 @@ class CampainDashboard < Administrate::BaseDashboard
     objective
     campain_type
     product
-    manager_id
   ].freeze
 
   # COLLECTION_FILTERS
