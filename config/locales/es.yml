@@ -5,6 +5,9 @@ es:
       campain: Campañas
       company: Compañias
       corporation: Corporaciones
+  date:
+    abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
+    month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
   helpers:
     label:
       campain:
@@ -17,10 +20,39 @@ es:
         manager: "Community Manager:"
         updated_at: "Última actualización:"
         created_at: "Creada:"
+      company:
+        bussines_name: "Razón social:"
+        created_at: "Creada:"
+        legal_representant_name: "Nombre de representante legal:"
+        legal_representant_email: "Correo del representante legal:"
+        legal_representant_phone: "Teléfono del representante legal:"
+        legal_representant_role: "Cargo del representante legal:"
+        location: "Ubicación:"
+        name: "Nombre:"
+        rfc: "RFC:"
+        updated_at: "Última actualización:"
+      corporation:
+        contacts: "Contactos:"
+        clients: "Clientes:"
+        legal_representant_name: "Nombre de representante legal:"
+        legal_representant_email: "Correo del representante legal:"
+        legal_representant_phone: "Teléfono del representante legal:"
+        legal_representant_role: "Cargo del representante legal:"
+        name: "Nombre:"
       user:
         updated_at: "Última actualización:"
         created_at: "Creado:"
         roles_mask: "Roles:"
+    submit:
+      create: "Registrar"
+      update: "Actualizar"
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%d-%b-%Y"
+      long: "%d de %B del %Y a las %H:%M"
+    am: "am"
+    pm: "pm"
   user:
     roles:
       owner: Dueño

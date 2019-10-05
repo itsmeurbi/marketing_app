@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Corporation < ApplicationRecord
-  has_many :clients, class_name: 'User'
-  has_many :contacts, class_name: 'User'
+  has_and_belongs_to_many :clients
+  has_and_belongs_to_many :contacts
 
   validates :name,
             :legal_representant_name,

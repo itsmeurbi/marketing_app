@@ -4,24 +4,24 @@ es:
       confirm: ¿Estás seguro?
       destroy: Eliminar
       edit: Editar
-      edit_resource: Editar %{name}
-      show_resource: Mostrar %{name}
-      new_resource: Nuevo %{name}
-      back: Volver
+      edit_resource: Editar
+      show_resource: Mostrar
+      new_resource: Nuevo
+      back: Regresar
     controller:
       create:
-        success: "%{resource} fue creado exitosamente."
+        success: "%{resource} creado correctamente"
       destroy:
-        success: "%{resource} fue destruido exitosamente."
+        success: "%{resource} eliminado correctamente"
       update:
-        success: "%{resource} fue actualizado exitosamente."
+        success: "%{resource} actualizado correctamente"
     fields:
       has_many:
         more: Mostrando %{count} de %{total_count}
         none: Ninguno
     form:
       error: error
-      errors: "%{pluralized_errors} no permitieron guardar este %{resource_name}:"
+      errors: "%{pluralized_errors} al registrar a %{resource_name}:"
     search:
       clear: Borrar búsqueda
       label: Buscar %{resource}
