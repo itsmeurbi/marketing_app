@@ -10,7 +10,7 @@ class ContactDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user: Field::BelongsTo,
+    user: Field::BelongsTo.with_options(scope: -> { User.with_role(:contact) }),
     corporation: Field::BelongsTo,
     id: Field::Number,
     created_at: Field::DateTime,
@@ -25,7 +25,6 @@ class ContactDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     user
     corporation
-    created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

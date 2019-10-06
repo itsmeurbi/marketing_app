@@ -1,0 +1,9 @@
+= simple_form_for(page.resource, url: admin_users_path, method: :post) do |f|
+  = f.label :name, t("helpers.label.user.name")
+  = f.input :name, wrapper_html: { class: 'field-unit' }, placeholder: 'Nombre de la persona'
+  = f.label :email, t("helpers.label.user.email")
+  = f.input :email, wrapper_html: { class: 'field-unit' }, placeholder: 'Correo electrónico'
+  = f.label :roles_mask, t("helpers.label.user.roles_mask")
+  = f.input :roles_mask, collection: User.admin_manage_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, input_html: { class: 'is-multiple is-marginless', multiple: true}, wrapper_html: { class: "select is-multiple" }
+  .column
+    = f.button :submit, 'Registrar'

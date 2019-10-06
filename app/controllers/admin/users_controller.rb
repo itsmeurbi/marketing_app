@@ -11,9 +11,7 @@ module Admin
     #   send_foo_updated_email
     # end
     def create
-      user = User.invite!(email: params[:user][:email],
-                          company: current_user.company,
-                          roles_mask: params[:user][:roles_mask])
+      user = User.invite!(user_params)
       if user.valid?
         flash[:notice] = 'El usuario fue registrado correctamente'
       else
@@ -40,10 +38,20 @@ module Admin
     #  end
     # end
 
-    def scoped_resource
-      User.rrhh_and_finance_in_company(current_user.company)
+    def role_mask
+      User.mask_for params[:user][:roles_mask].map(&:to_sym)
     end
 
+    def scoped_resource
+      User.admin_manage_users(current_user.company)
+    end
+
+    def user_params
+      { email: params[:user][:email],
+        name: params[:user][:name],
+        company: current_user.company,
+        roles_mask: role_mask }
+    end
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
   end
