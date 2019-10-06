@@ -10,6 +10,10 @@ es:
   date:
     abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
     month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+    formats:
+      default: "%Y/%m/%d"
+      short: "%d-%b-%Y"
+      long: "%d de %B del %Y a las %H:%M"
   helpers:
     label:
       campain:
@@ -58,9 +62,11 @@ es:
         name: "Nombre:"
         updated_at: "Última actualización:"
       user:
-        updated_at: "Última actualización:"
+        email: "Email:"
         created_at: "Creado:"
+        name: "Nombre:"
         roles_mask: "Roles:"
+        updated_at: "Última actualización:"
     submit:
       create: "Registrar"
       update: "Actualizar"
@@ -73,10 +79,12 @@ es:
     pm: "pm"
   user:
     roles:
-      owner: Dueño
-      company: Compañia
+      client: Cliente
       community_manager: Community manager
+      company: Compañia
+      contact: Contacto
       content_creator: Creador de contenido
       designer: Diseñador
-      rrhh: RRHH
       finance: Finanzas
+      rrhh: RRHH
+      owner: Dueño

@@ -13,10 +13,10 @@ class CampainDashboard < Administrate::BaseDashboard
     manager: Field::BelongsTo.with_options(class_name: 'User'),
     id: Field::Number,
     name: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    start_date: Field::DateTime,
-    end_date: Field::DateTime,
+    created_at: ShortDateField,
+    updated_at: ShortDateField,
+    start_date: ShortDateField,
+    end_date: ShortDateField,
     objective: Field::String,
     campain_type: Field::Number,
     product: Field::String,
@@ -29,9 +29,8 @@ class CampainDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    manager
-    id
     name
+    manager
     created_at
   ].freeze
 
