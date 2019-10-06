@@ -23,3 +23,7 @@ manager:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'managerUser') %>
   roles_mask: 4
 
+finance:
+  email: finance"gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'financeUser') %>
+  roles_mask: 64

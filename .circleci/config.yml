@@ -2,19 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
           PGHOST: 127.0.0.1
           PGUSER: postgres
           RAILS_ENV: test
           RAKE_ENV: test
+
       - image: circleci/postgres:9.4
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: marketing_test
           POSTGRES_PASSWORD: ""
-
 
     steps:
       - checkout
@@ -32,10 +31,12 @@ jobs:
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler -v 2.0.2
+
       - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --no-deployment --path vendor/bundle
+
       - save_cache:
           paths:
             - ./vendor/bundle
@@ -58,6 +59,9 @@ jobs:
           name: run scss int
           command: bundle exec scss-lint app/assets/stylesheets/
 
+      - run: yarn
+      - run: bundle exec rails webpacker:compile
+
       # run tests!
       - run:
           name: run tests
@@ -67,10 +71,3 @@ jobs:
       - run:
           name: run system test
           command: bundle exec rails test:system
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
