@@ -1,13 +1,24 @@
-%header.header
-  -if current_user
-    - unless controller_path.include?('landing')
-      = link_to 'Inicio', root_path
-    - if current_user.is_owner?
-      = link_to 'Admin dashboard', admin_campains_path
-    - if current_user.is_rrhh?
-      = link_to 'RRRHH dashboard', rrhh_users_path
-    - if current_user.is_finance?
-      = link_to 'Finance dashboar', finance_companies_path
-    - if current_user.is_community_manager?
-      = link_to 'Community dashboard', community_campains_path
-    = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete
+
+%nav.navbar.is-transparent{"aria-label" => "main navigation", :role => "navigation"}
+  .navbar-menu
+    .navbar-start
+      = link_to image_tag("app-logo.png"), root_path, class: 'navbar-item'
+    .navbar-end
+      .navbar-item.has-dropdown.is-hoverable.has-double-margin-right
+        -if current_user
+          %a.navbar-link
+            Menú
+          .navbar-dropdown.is-right
+            - unless controller_path.include?('landing')
+              = link_to 'Inicio', root_path, class: "navbar-item"
+            - if current_user.is_owner?
+              = link_to 'Admin dashboard', admin_campains_path, class: "navbar-item"
+            - if current_user.is_rrhh?
+              = link_to 'RRRHH dashboard', rrhh_users_path, class: "navbar-item"
+            - if current_user.is_finance?
+              = link_to 'Finance dashboar', finance_companies_path, class: "navbar-item"
+            - if current_user.is_community_manager?
+              = link_to 'Community dashboard', community_campains_path, class: "navbar-item"
+            %hr.navbar-divider
+            = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: "navbar-item"
+

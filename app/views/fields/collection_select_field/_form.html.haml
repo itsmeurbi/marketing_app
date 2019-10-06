@@ -1,0 +1,6 @@
+%div
+  %label Roles
+  .column.is-flex.is-justified-space-between.is-aligned-center
+    - User.valid_roles.map do |role|
+      %label{:for => "#{role}%"}= role
+      %input{:name => "role", :type => "checkbox", :value => "#{User.mask_for(role)}"}/
