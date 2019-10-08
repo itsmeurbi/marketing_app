@@ -10,8 +10,9 @@ class CampainDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    manager: Field::BelongsTo.with_options(class_name: 'User'),
     id: Field::Number,
+    manager: Field::BelongsTo.with_options(class_name: 'User'),
+    image: Field::ActiveStorage,
     name: Field::String,
     created_at: ShortDateField,
     updated_at: ShortDateField,
@@ -46,6 +47,7 @@ class CampainDashboard < Administrate::BaseDashboard
     updated_at
     start_date
     end_date
+    image
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -59,6 +61,7 @@ class CampainDashboard < Administrate::BaseDashboard
     objective
     campain_type
     product
+    image
   ].freeze
 
   # COLLECTION_FILTERS
