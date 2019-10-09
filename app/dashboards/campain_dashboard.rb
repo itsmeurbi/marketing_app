@@ -21,6 +21,7 @@ class CampainDashboard < Administrate::BaseDashboard
     objective: Field::String,
     campain_type: Field::Number,
     product: Field::String,
+    company: Field::Polymorphic.with_options(classes: [Company, Corporation] ),
     manager_id: Field::Number
   }.freeze
 
@@ -42,6 +43,7 @@ class CampainDashboard < Administrate::BaseDashboard
     manager
     product
     campain_type
+    company
     objective
     created_at
     updated_at
@@ -61,6 +63,7 @@ class CampainDashboard < Administrate::BaseDashboard
     objective
     campain_type
     product
+    company
     image
   ].freeze
 

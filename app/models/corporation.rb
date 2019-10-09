@@ -3,6 +3,7 @@
 class Corporation < ApplicationRecord
   has_and_belongs_to_many :clients
   has_and_belongs_to_many :contacts
+  has_many :campainns, as: :company
 
   validates :name,
             :legal_representant_name,

@@ -2,6 +2,8 @@
 
 class Company < ApplicationRecord
   has_many :employees, class_name: 'User'
+  has_many :campains, as: :company
+
   validates :name,
             :legal_representant_name,
             :legal_representant_email,

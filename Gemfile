@@ -10,6 +10,7 @@ gem 'administrate-field-active_storage'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bulma-rails'
 gem 'devise'
+gem 'i18n-debug'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.7'
