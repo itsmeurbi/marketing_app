@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_044914) do
+ActiveRecord::Schema.define(version: 2019_10_09_033832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,11 @@ ActiveRecord::Schema.define(version: 2019_10_08_044914) do
     t.date "start_date", null: false
     t.date "end_date", null: false
     t.string "objective"
-    t.integer "campain_type", null: false
+    t.string "campain_type", null: false
     t.string "product"
     t.bigint "manager_id"
+    t.integer "company_id"
+    t.string "company_type"
     t.index ["manager_id"], name: "index_campains_on_manager_id"
   end
 
