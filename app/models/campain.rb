@@ -3,10 +3,13 @@
 class Campain < ApplicationRecord
   belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
   has_many :coworkers
+  has_one_attached :image
   validates :name,
             :start_date,
             :end_date,
             :objective,
             :campain_type,
-            :product, presence: true
+            :product,
+            :image,
+            presence: true
 end

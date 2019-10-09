@@ -1,0 +1,68 @@
+%h1
+  = @campain.name
+
+.columns.has-regular-margin.is-flex.is-wrap.has-full-width
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Objetivo:
+    %p=@campain.objective
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Fecha de inicio:
+    %p=@campain.start_date
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Fecha de termino:
+    %p=@campain.end_date
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Tipo de campaña:
+    %p=@campain.campain_type
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Producto:
+    %p=@campain.product
+
+
+%p
+  Posible Neo4j here
+
+%h3
+  Coworkers
+
+%table.table.has-full-width.has-regular-margin
+  %thead
+    %tr
+      %th
+        Email
+      %th
+        Rol
+  %tbody
+    - @campain.coworkers.each do |coworker|
+      - if coworker.user
+        %tr
+          %td
+            %p=coworker.user&.email
+          %td
+            = t("coworker.roles.#{Coworker.roles.key(coworker&.role)}")
+
+
+%h3.has-regular-margin
+  Agregar empledo
+= simple_form_for(@coworker, url: community_campain_coworkers_path(@campain), method: :post, defaults: { wrapper: false }) do |f|
+  .field.is-horizontal.has-regular-margin
+    .field-body
+      .field
+        .column.is-paddingless
+          = f.label :user, 'Empleado'
+          = f.input :user, collection: current_user.company.employees.map { |employee| [ employee.email, employee.id ] }, include_blank: false
+      .field
+        .column.is-paddingless
+          = f.label :role, 'Rol'
+          = f.input :role, collection: Coworker.roles.keys.map { |role| [t("coworker.roles.#{role}"), role.to_s ] }, include_blank: false
+  = f.submit 'Registrar', class: 'button is-primary'
+
