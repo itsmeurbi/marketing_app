@@ -10,4 +10,9 @@ class Corporation < ApplicationRecord
             :legal_representant_email,
             :legal_representant_phone,
             :legal_representant_role, presence: true
+  validates :name, length: { in: 5..30 }
+  validates :legal_representant_role, length: { in: 3..20 }
+  validates :legal_representant_phone, length: { in: 10..12 }
+  validates :legal_representant_name,
+            :legal_representant_email, length: { in: 10..40 }
 end

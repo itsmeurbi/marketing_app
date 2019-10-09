@@ -21,7 +21,7 @@ class CampainDashboard < Administrate::BaseDashboard
     objective: Field::String,
     campain_type: Field::Number,
     product: Field::String,
-    company: Field::Polymorphic.with_options(classes: [Company, Corporation] ),
+    company: Field::Polymorphic.with_options(classes: [Company, Corporation]),
     manager_id: Field::Number
   }.freeze
 

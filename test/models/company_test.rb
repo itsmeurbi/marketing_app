@@ -11,7 +11,8 @@ class CompanyTest < ActiveSupport::TestCase
                            legal_representant_role: 'CTO',
                            bussines_name: 'Umbrella SA',
                            rfc: '123LLK314LJDU786',
-                           location: 'RaconCity')
+                           location: 'RaconCity, United States of America')
+
     assert umbrella.valid?
   end
 
