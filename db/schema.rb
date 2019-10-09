@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_145317) do
+ActiveRecord::Schema.define(version: 2019_10_06_153755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2019_09_29_145317) do
     t.index ["manager_id"], name: "index_campains_on_manager_id"
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "corporation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["corporation_id"], name: "index_clients_on_corporation_id"
+    t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -39,6 +48,15 @@ ActiveRecord::Schema.define(version: 2019_09_29_145317) do
     t.string "bussines_name", null: false
     t.string "rfc", null: false
     t.string "location", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "corporation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["corporation_id"], name: "index_contacts_on_corporation_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "corporations", force: :cascade do |t|
@@ -78,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_145317) do
     t.integer "invited_by_id"
     t.string "invited_by_type"
     t.bigint "company_id"
+    t.string "name"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true

@@ -14,10 +14,22 @@ body {
   justify-content: center;
 }
 
+.is-justified-space-between {
+  justify-content: space-between;
+}
+
+.is-aligned-center {
+  align-items: center;
+}
+
 .hint {
   font-size: .7em;
 }
 
 .has-regular-margin {
   margin: $regular-margin;
+}
+
+.has-double-margin-right {
+  margin-right: $regular-margin;
 }

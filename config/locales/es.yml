@@ -4,4 +4,87 @@ es:
       user: Usuarios
       campain: Campañas
       company: Compañias
+      client: Clientes
       corporation: Corporaciones
+      contact: Contactos
+  date:
+    abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
+    month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+    formats:
+      default: "%Y/%m/%d"
+      short: "%d-%b-%Y"
+      long: "%d de %B del %Y a las %H:%M"
+  helpers:
+    label:
+      campain:
+        name: Nombre
+        start_date: "Fecha de inicio:"
+        end_date: "Fecha de término:"
+        objective: "Objetivo:"
+        campain_type: "Tipo de campaña:"
+        product: "Producto:"
+        manager: "Community Manager:"
+        updated_at: "Última actualización:"
+        created_at: "Creada:"
+      client:
+        created_at: "Creada:"
+        corporation: "Corporación:"
+        corporation_id: "Corporación:"
+        updated_at: "Última actualización:"
+        user: "Usuario:"
+        user_id: "Usuario:"
+      company:
+        bussines_name: "Razón social:"
+        created_at: "Creada:"
+        legal_representant_name: "Nombre de representante legal:"
+        legal_representant_email: "Correo del representante legal:"
+        legal_representant_phone: "Teléfono del representante legal:"
+        legal_representant_role: "Cargo del representante legal:"
+        location: "Ubicación:"
+        name: "Nombre:"
+        rfc: "RFC:"
+        updated_at: "Última actualización:"
+      contact:
+        corporation: "Corporación:"
+        created_at: "Creada:"
+        corporation_id: "Corporación:"
+        user_id: "Usuario:"
+        updated_at: "Última actualización:"
+        user: "Usuario:"
+      corporation:
+        contacts: "Contactos:"
+        created_at: "Creada:"
+        clients: "Clientes:"
+        legal_representant_name: "Nombre de representante legal:"
+        legal_representant_email: "Correo del representante legal:"
+        legal_representant_phone: "Teléfono del representante legal:"
+        legal_representant_role: "Cargo del representante legal:"
+        name: "Nombre:"
+        updated_at: "Última actualización:"
+      user:
+        email: "Email:"
+        created_at: "Creado:"
+        name: "Nombre:"
+        roles_mask: "Roles:"
+        updated_at: "Última actualización:"
+    submit:
+      create: "Registrar"
+      update: "Actualizar"
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%d-%b-%Y"
+      long: "%d de %B del %Y a las %H:%M"
+    am: "am"
+    pm: "pm"
+  user:
+    roles:
+      client: Cliente
+      community_manager: Community manager
+      company: Compañia
+      contact: Contacto
+      content_creator: Creador de contenido
+      designer: Diseñador
+      finance: Finanzas
+      rrhh: RRHH
+      owner: Dueño

@@ -2,7 +2,7 @@
 
 require 'administrate/base_dashboard'
 
-class CampainDashboard < Administrate::BaseDashboard
+class ContactDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,17 +10,11 @@ class CampainDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    manager: Field::BelongsTo.with_options(class_name: 'User'),
+    user: Field::BelongsTo.with_options(scope: -> { User.with_role(:contact) }),
+    corporation: Field::BelongsTo,
     id: Field::Number,
-    name: Field::String,
-    created_at: ShortDateField,
-    updated_at: ShortDateField,
-    start_date: ShortDateField,
-    end_date: ShortDateField,
-    objective: Field::String,
-    campain_type: Field::Number,
-    product: Field::String,
-    manager_id: Field::Number
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,36 +23,25 @@ class CampainDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    name
-    manager
-    created_at
+    user
+    corporation
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    name
-    manager
-    product
-    campain_type
-    objective
+    user
+    corporation
     created_at
     updated_at
-    start_date
-    end_date
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    manager
-    name
-    start_date
-    end_date
-    objective
-    campain_type
-    product
+    user
+    corporation
   ].freeze
 
   # COLLECTION_FILTERS
@@ -73,10 +56,10 @@ class CampainDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how campains are displayed
+  # Overwrite this method to customize how contacts are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(campain)
-  #   "Campain ##{campain.id}"
+  # def display_resource(contact)
+  #   "Contact ##{contact.id}"
   # end
 end
