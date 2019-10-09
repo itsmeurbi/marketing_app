@@ -12,6 +12,8 @@ Metrics/CyclomaticComplexity:
 
 Metrics/MethodLength:
   Max: 13
+  Exclude:
+    - 'db/migrate/*.rb'
 
 Metrics/PerceivedComplexity:
   Max: 9
@@ -28,6 +30,7 @@ Metrics/LineLength:
     - 'bin/*'
     - 'config/**/*'
     - 'db/schema.rb'
+    - 'db/migrate/*.rb'
   Max: 90
 
 Style/StringLiterals:

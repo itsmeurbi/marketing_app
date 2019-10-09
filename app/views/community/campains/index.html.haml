@@ -1,0 +1,24 @@
+%h1.is-size-2
+  Campañas que gestionas
+
+.columns.is-flex.has-full-width.is-wrap.has-regular-margin
+  - @campains.each do |campain|
+    .column.is-three-quarters-mobile.is-one-third.is-one-quarter-desktop.is-half-mobile.is-flex.has-direction-column.has-full-height
+      .card.has-regular-margin
+        .card-image
+          %figure.image.is-4by3
+            - if campain.image.attached?
+              = image_tag(campain.image)
+            - else
+              %img{:alt => "Placeholder image", :src => "https://bulma.io/images/placeholders/1280x960.png"}/
+
+        .card-content
+          .media
+            .media-content
+              =link_to campain.name, community_campain_path(campain.id)
+          .content
+            %b.is-size-7
+              Termina:
+              = l(campain.end_date, format: :short)
+
+

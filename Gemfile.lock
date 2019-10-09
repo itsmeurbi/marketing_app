@@ -74,6 +74,9 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    administrate-field-active_storage (0.2.0)
+      administrate (>= 0.2.0.rc1)
+      rails (>= 6.0)
     ast (2.4.0)
     autoprefixer-rails (9.6.1.1)
       execjs
@@ -317,6 +320,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate!
+  administrate-field-active_storage
   bootsnap (>= 1.4.2)
   bulma-rails
   byebug

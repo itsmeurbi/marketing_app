@@ -30,6 +30,26 @@ body {
   margin: $regular-margin;
 }
 
+.has-regular-padding {
+  padding: $regular-padding;
+}
+
 .has-double-margin-right {
   margin-right: $regular-margin;
+}
+
+.is-wrap {
+  flex-wrap: wrap;
+}
+
+.has-direction-column {
+  flex-direction: column;
+}
+
+.has-full-height {
+  height: 100%;
+}
+
+.has-full-width {
+  width: 100%;
 }

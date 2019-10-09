@@ -7,6 +7,10 @@ es:
       client: Clientes
       corporation: Corporaciones
       contact: Contactos
+  coworker:
+    roles:
+      content_creator: Creador de contenido
+      designer: Diseñador
   date:
     abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
     month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
