@@ -121,15 +121,17 @@ es:
   helpers:
     label:
       campain:
-        name: Nombre
+        name: "Nombre:"
         start_date: "Fecha de inicio:"
         end_date: "Fecha de término:"
         objective: "Objetivo:"
         campain_type: "Tipo de campaña:"
         product: "Producto:"
-        manager: "Community Manager:"
+        manager_id: "Community Manager:"
         updated_at: "Última actualización:"
         created_at: "Creada:"
+        image: "Imagen:"
+        company: "Compañia:"
       client:
         created_at: "Creada:"
         corporation: "Corporación:"
@@ -165,6 +167,9 @@ es:
         legal_representant_role: "Cargo del representante legal:"
         name: "Nombre:"
         updated_at: "Última actualización:"
+      fields:
+        select:
+          options: Selecciona una opción
       user:
         email: "Email:"
         created_at: "Creado:"
