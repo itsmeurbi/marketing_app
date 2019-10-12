@@ -11,7 +11,8 @@ class CampainDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    manager: Field::BelongsTo.with_options(class_name: 'User', scope: -> { User.with_role(:community_manager) }),
+    manager: Field::BelongsTo.with_options(class_name: 'User',
+                                           scope: -> { User.with_role(:community_manager) }),
     image: Field::ActiveStorage,
     name: Field::String,
     created_at: ShortDateField,
