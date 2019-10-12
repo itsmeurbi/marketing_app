@@ -19,5 +19,14 @@ module Finance
 
       assert_response :redirect
     end
+
+    test 'it response success when finance access to company show' do
+      login_as users(:finance)
+      company = companies(:microsoft)
+
+      get finance_company_path(company)
+
+      assert_response :success
+    end
   end
 end

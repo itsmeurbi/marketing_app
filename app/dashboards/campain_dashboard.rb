@@ -11,7 +11,8 @@ class CampainDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    manager: Field::BelongsTo.with_options(class_name: 'User'),
+    manager: Field::BelongsTo.with_options(class_name: 'User',
+                                           scope: -> { User.with_role(:community_manager) }),
     image: Field::ActiveStorage,
     name: Field::String,
     created_at: ShortDateField,
@@ -19,7 +20,7 @@ class CampainDashboard < Administrate::BaseDashboard
     start_date: ShortDateField,
     end_date: ShortDateField,
     objective: Field::String,
-    campain_type: Field::Number,
+    campain_type: Field::String,
     product: Field::String,
     company: Field::Polymorphic.with_options(classes: [Company, Corporation]),
     manager_id: Field::Number
@@ -33,6 +34,7 @@ class CampainDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     name
     manager
+    company
     created_at
   ].freeze
 
