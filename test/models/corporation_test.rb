@@ -9,6 +9,7 @@ class CorporationTest < ActiveSupport::TestCase
                                legal_representant_email: 'arron@marketing.io',
                                legal_representant_phone: '312-002-0000',
                                legal_representant_role: 'CTO')
+
     assert umbrella.valid?
   end
 

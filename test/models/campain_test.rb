@@ -8,14 +8,15 @@ class CampainTest < ActiveSupport::TestCase
   end
 
   test 'campaign is valid with all attributes' do
-    vans = Campain.new(name: 'Vans',
+    vans = Campain.new(name: 'Vans campain',
                        start_date: Time.now,
                        end_date: Time.now - 1.day,
-                       objective: 'Posicionamiento',
-                       campain_type: 1,
+                       objective: 'Increase number of clients',
+                       campain_type: 'Positioning Positioning',
                        product: 'iPhone 11',
                        manager: users(:manager),
-                       image: @image)
+                       image: @image,
+                       company: Company.first)
 
     assert vans.valid?
   end

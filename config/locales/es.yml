@@ -1,5 +1,103 @@
 es:
   activerecord:
+    errors:
+      models:
+        campain:
+          attributes:
+            campain_type:
+              blank: Es necesario definir un tipo de campaña
+              too_short: El tipo de campaña es demasiado corto
+              too_long: El tipo de campaña es demasiado largo
+            company:
+              required: Es necesario seleccionar a una compañia
+            end_date:
+              blank: Es necesario definir una fecha de termino
+            image:
+              blank: Debes agregar una imagen para la campaña
+            objective:
+              blank: Es necesario definir un objetivo
+              too_short: El objetivo es demasiado corto
+              too_long: El objetivo es demasiado largo
+            manager:
+              required: Es necesario seleccionar a un manager
+            name:
+              blank: Debes definir un nombre para la campaña
+              too_short: El nombre es demasiado corto
+              too_long: El nombre es demasiado grande
+            product:
+              blank: Es necesario definir un producto
+              too_short: El nombe del producto es demasiado corto
+              too_long: El nombe del producto es demasiado largo
+            start_date:
+              blank: Es necesario definir una fecha de inicio
+        client:
+          attributes:
+            corporation:
+              required: Es necesario seleccionar una corporación
+            user:
+              required: Es necesario seleccionar a un usuario
+        company:
+          attributes:
+            bussines_name:
+              blank:  Debes agregar la razón socila
+              too_short: La razón social es demasiado corta
+              too_long: La razón social es demasiado larga
+            legal_representant_name:
+              blank: Debes agregar un nombre de representante legal
+              too_short: El nombre del representante es demasiado corto
+              too_long: El nombre del representante es demasiado largo
+            legal_representant_email:
+              blank: Debes agregar un correo de contacto
+              too_short: El correo del representante es demasiado corto
+              too_long: El correo del representante es demasido largo
+            legal_representant_phone:
+              blank:  Debes agregar un numero telefonico
+              too_short: El telefono del representante es demasiado corto
+              too_long: El telefono del representante es demasiado largo
+            legal_representant_role:
+              blank:  Debes agregar un cargodel representante
+              too_short: El cargo del representante es demasiado corto
+              too_long: El cargo del representante es demasiado largo
+            location:
+              blank:  Debes definir una ubicación
+              too_short: La ubicación es demasiado corta
+              too_long: La ubicación es demasiado larga
+            name:
+              blank: Debes agregar un nombre a la compañia
+              too_short: El nombre es demasiado corto
+              too_long: El nombre es demasiado largo
+            rfc:
+              blank:  Debes definir el RFC
+              too_short: El rfc es demasiado corto
+              too_long: El rfc es demasiado largo
+        contact:
+          attributes:
+            corporation:
+              required: Es necesario seleccionar una corporación
+            user:
+              required: Es necesario seleccionar a un usuario
+        corporation:
+          attributes:
+            legal_representant_name:
+              blank: Debes agregar un nombre de representante legal
+              too_short: El nombre del representante es demasiado corto
+              too_long: El nombre del representante es demasiado largo
+            legal_representant_email:
+              blank: Debes agregar un correo de contacto
+              too_short: El correo del representante es demasiado corto
+              too_long: El correo del representante es demasido largo
+            legal_representant_phone:
+              blank:  Debes agregar un numero telefonico
+              too_short: El telefono del representante es demasiado corto
+              too_long: El telefono del representante es demasiado largo
+            legal_representant_role:
+              blank:  Debes agregar un cargodel representante
+              too_short: El cargo del representante es demasiado corto
+              too_long: El cargo del representante es demasiado largo
+            name:
+              blank: Debes agregar un nombre
+              too_short: El nombre es demasiado corto
+              too_long: El nombre es demasiado largo
     models:
       user: Usuarios
       campain: Campañas
@@ -18,18 +116,22 @@ es:
       default: "%Y/%m/%d"
       short: "%d-%b-%Y"
       long: "%d de %B del %Y a las %H:%M"
+  errors:
+    format: "%{message}"
   helpers:
     label:
       campain:
-        name: Nombre
+        name: "Nombre:"
         start_date: "Fecha de inicio:"
         end_date: "Fecha de término:"
         objective: "Objetivo:"
         campain_type: "Tipo de campaña:"
         product: "Producto:"
-        manager: "Community Manager:"
+        manager_id: "Community Manager:"
         updated_at: "Última actualización:"
         created_at: "Creada:"
+        image: "Imagen:"
+        company: "Compañia:"
       client:
         created_at: "Creada:"
         corporation: "Corporación:"
@@ -65,6 +167,9 @@ es:
         legal_representant_role: "Cargo del representante legal:"
         name: "Nombre:"
         updated_at: "Última actualización:"
+      fields:
+        select:
+          options: Selecciona una opción
       user:
         email: "Email:"
         created_at: "Creado:"
