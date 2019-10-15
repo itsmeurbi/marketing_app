@@ -44,20 +44,17 @@
 
 #network-popUp
   %span#operation node
-  %br/
-  %table{:style => "margin:auto;"}
-    %tr
-      %td id
-      %td
-        %input#node-id
+  %br
+  %table{style: "margin:auto;"}
     %tr
       %td label
       %td
-        %input#node-label{:value => "new value"}/
+        %input#node-label{value: "new value"}
   .buttons.are-small
-    %input.button.is-success#saveButton{type: "button", value: "Guardar"}
+    %input.button.is-success#saveButton{type: "button", value: "Guardar", href: "#{community_campain_nodes_path(@campain)}"}
     %input.button.is-danger#cancelButton{type:  "button", value: "Cancelar"}
-
+%a#createEdgeLink{href: "#{community_edges_path}"}
+%a#currentPath{href: "#{community_campain_path(@campain)}"}
 %h3
   Coworkers
 
