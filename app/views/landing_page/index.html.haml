@@ -1,3 +1,41 @@
-.column.is-full
-  %h1
-    Welcome to landing page
+%section.hero.is-info.is-fullheight#background-landing
+  .hero-body
+    .container.has-text-centered
+      .column.is-6
+        %h1.title.is-size-1
+          = t("generic.app_name")
+        %h2.subtitle.is-size-3
+          = t("landing_page.manage_campaigns")
+
+%section.hero.is-info.is-fullheight.columns.is-vcentered.has-flex-direction-row.is-marginless
+  .column
+    #services.section-color.services
+      .container
+        .columns.is-multiline
+          .column.is-12.has-regular-margin{"data-aos" => "fade-in", "data-aos-easing" => "linear"}
+            %h2.has-text-centered.section-title.is-size-2
+              = t("landing_page.why")
+          .column.is-full.has-regular-margin
+            .columns
+              .column.is-half.has-text-centered{"data-aos" => "fade-in", "data-aos-easing" => "linear"}
+                %i.mdi.mdiCalendar.mdi-48px.has-regular-margin
+                %hr/
+                %p.is-size-4
+                  = t("landing_page.activities_section")
+              .column.is-half.has-text-centered{"data-aos" => "fade-in", "data-aos-easing" => "linear"}
+                %i.fas.fa-project-diagram-alt.fa-4x.has-regular-margin
+                %hr/
+                %p.is-size-4
+                  = t("landing_page.semantycs_section")
+          .column.has-regular-margin.is-full
+            .columns
+              .column.is-half.has-text-centered{"data-aos" => "fade-in", "data-aos-easing" => "linear"}
+                %i.fas.fa-users.fa-4x.has-regular-margin
+                %hr/
+                %p.is-size-4
+                  = t("landing_page.users_section")
+              .column.is-half.has-text-centered{"data-aos" => "fade-in", "data-aos-easing" => "linear"}
+                %i.fas.fa-sort-numeric-up.fa-4x.has-regular-margin
+                %hr/
+                %p.is-size-4
+                  = t("landing_page.feelings_section")
