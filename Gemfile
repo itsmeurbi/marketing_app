@@ -24,6 +24,7 @@ gem 'scss_lint', require: false
 gem 'simple_form', '>= 5.0.0'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
