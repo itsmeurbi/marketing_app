@@ -188,6 +188,9 @@ es:
     semantycs_section: "Capture graficamente redes semánticas"
     users_section: "Páginas personalizadas para las necesidades de cada tipo de usuario"
     why: "¿Por qué usar Marketing Analytics?"
+  placeholders:
+    email: Ingresa tu correo electrónico
+    password: "********"
   time:
     formats:
       default: "%Y/%m/%d"
