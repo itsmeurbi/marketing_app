@@ -23,8 +23,10 @@ Rails.application.routes.draw do
 
   namespace :community do
     resources :campains, only: %i[index show] do
+      resources :nodes, only: %i[create update delete]
       resources :coworkers
     end
+    resources :edges, only: %i[create update delete]
     root to: 'campains#index'
   end
 
