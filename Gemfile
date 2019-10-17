@@ -11,6 +11,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bulma-rails'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
+gem 'font-awesome-rails'
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-debug'
 gem 'jbuilder', '~> 2.7'
@@ -24,7 +25,6 @@ gem 'scss_lint', require: false
 gem 'simple_form', '>= 5.0.0'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
-gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
