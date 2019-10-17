@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(function() {
-    document.getElementsByClassName('notification')[0].classList.add('is-hidden')
-  }, 5000);
-  console.log('dsas')
+  var notification = document.getElementsByClassName('notification')
+  if (notification.lentgh > 0){
+    setTimeout(function() {
+      notificarion[0].classList.add('is-hidden')
+    }, 5000);
+  }
 });
+

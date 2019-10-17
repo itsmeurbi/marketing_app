@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_033832) do
+ActiveRecord::Schema.define(version: 2019_10_15_025110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,25 @@ ActiveRecord::Schema.define(version: 2019_10_09_033832) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["campain_id"], name: "index_coworkers_on_campain_id"
     t.index ["user_id"], name: "index_coworkers_on_user_id"
+  end
+
+  create_table "edges", force: :cascade do |t|
+    t.bigint "node_from_id"
+    t.bigint "node_to_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["node_from_id"], name: "index_edges_on_node_from_id"
+    t.index ["node_to_id"], name: "index_edges_on_node_to_id"
+  end
+
+  create_table "nodes", force: :cascade do |t|
+    t.bigint "campain_id", null: false
+    t.bigint "node_id"
+    t.string "label", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["campain_id"], name: "index_nodes_on_campain_id"
+    t.index ["node_id"], name: "index_nodes_on_node_id"
   end
 
   create_table "users", force: :cascade do |t|
