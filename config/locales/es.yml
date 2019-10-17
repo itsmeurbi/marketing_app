@@ -118,6 +118,8 @@ es:
       long: "%d de %B del %Y a las %H:%M"
   errors:
     format: "%{message}"
+  generic:
+    app_name: Marketing analytics
   helpers:
     label:
       campain:
@@ -179,6 +181,13 @@ es:
     submit:
       create: "Registrar"
       update: "Actualizar"
+  landing_page:
+    activities_section: "Organice las publicaciones de su campaña por fecha"
+    feelings_section: "Analice y obtenga los sentimientos de los comentarios de sus publicaciones"
+    manage_campaigns: "La herramienta para gestión de campañas digitales"
+    semantycs_section: "Capture graficamente redes semánticas"
+    users_section: "Páginas personalizadas para las necesidades de cada tipo de usuario"
+    why: "¿Por qué usar Marketing Analytics?"
   time:
     formats:
       default: "%Y/%m/%d"
