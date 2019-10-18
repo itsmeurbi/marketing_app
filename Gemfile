@@ -12,6 +12,7 @@ gem 'bulma-rails'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'font-awesome-rails'
+gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-debug'
 gem 'jbuilder', '~> 2.7'
