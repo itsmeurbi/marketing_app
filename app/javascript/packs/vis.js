@@ -50,11 +50,32 @@ function networkOptions(){
           createEdge(data, callback );
         }
       },
-      deleteNode: function(toBeDeletedData, callback) {
-        callback(toBeDeletedData);
+      deleteNode: function(data, callback) {
+        requestDelete(data, callback)
       },
     }
   };
+}
+
+function requestDelete(data, callback){
+  data.nodes.forEach((nodeId) => {
+    deleteNode(nodeId, data, callback);
+  });
+}
+
+function deleteNode(nodeId, data, callback){
+  const url = document.getElementById('currentPath').getAttribute("href") + `/nodes/${nodeId}.json`;
+  axios.delete(url, { id: nodeId })
+            .then((response) => {
+              if(response.status == 200){
+                callback(data);
+              }else{
+                console.log(response.data);
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
 }
 
 function clearPopUp() {
