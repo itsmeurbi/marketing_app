@@ -17,5 +17,18 @@ module Community
         end
       end
     end
+
+    def destroy
+      node = Node.find(params[:id])
+      respond_to do |format|
+        format.json do
+          if node.destroy
+            render json: node
+          else
+            render json: node.errors
+          end
+        end
+      end
+    end
   end
 end
