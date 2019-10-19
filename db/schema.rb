@@ -103,22 +103,20 @@ ActiveRecord::Schema.define(version: 2019_10_15_025110) do
   end
 
   create_table "edges", force: :cascade do |t|
-    t.bigint "node_from_id"
-    t.bigint "node_to_id"
+    t.bigint "from_id"
+    t.bigint "to_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["node_from_id"], name: "index_edges_on_node_from_id"
-    t.index ["node_to_id"], name: "index_edges_on_node_to_id"
+    t.index ["from_id"], name: "index_edges_on_from_id"
+    t.index ["to_id"], name: "index_edges_on_to_id"
   end
 
   create_table "nodes", force: :cascade do |t|
     t.bigint "campain_id", null: false
-    t.bigint "node_id"
     t.string "label", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["campain_id"], name: "index_nodes_on_campain_id"
-    t.index ["node_id"], name: "index_nodes_on_node_id"
   end
 
   create_table "users", force: :cascade do |t|

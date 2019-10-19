@@ -51,17 +51,42 @@ function networkOptions(){
         }
       },
       deleteNode: function(data, callback) {
-        requestDelete(data, callback)
+        requestNodeDelete(data, callback)
       },
+      deleteEdge: function(data, callback){
+        requestEdgeDelete(data, callback)
+      }
     }
   };
 }
 
-function requestDelete(data, callback){
-  data.nodes.forEach((nodeId) => {
+function requestNodeDelete(data, callback){
+  data.nodes.forEach( nodeId => {
     deleteNode(nodeId, data, callback);
   });
 }
+
+function requestEdgeDelete(data, callback){
+  data.edges.forEach( edgeId => {
+    deleteEdge(edgeId, data, callback);
+  })
+}
+
+function deleteEdge(edgeId, data, callback){
+  const url = document.getElementById('createEdgeLink').getAttribute("href") + `/${edgeId}.json`;
+  axios.delete(url)
+  .then((response) => {
+    if(response.status == 200){
+      callback(data);
+    }else{
+      console.log(response.data);
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
+
 
 function deleteNode(nodeId, data, callback){
   const url = document.getElementById('currentPath').getAttribute("href") + `/nodes/${nodeId}.json`;
@@ -143,7 +168,7 @@ function processResponse(response){
   var data = {}
   if(response.status == 200){
     let nodes = response.data.nodes.map( (node) => { return {id: node.id, label: node.label }});
-    let edges = response.data.edges.map( (edge) => { return {from: edge.node_from_id, to: edge.node_to_id }});
+    let edges = response.data.edges.map( (edge) => { return {id: edge.id, from: edge.from_id, to: edge.to_id }});
     data  = {
       nodes: nodes,
       edges: edges
