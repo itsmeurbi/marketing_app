@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   namespace :community do
     resources :campains, only: %i[index show] do
-      resources :nodes, only: %i[create destroy]
+      resources :nodes, only: %i[create destroy update]
       resources :coworkers
     end
     resources :edges, only: %i[create update destroy]

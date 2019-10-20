@@ -26,6 +26,9 @@ Style/IfUnlessModifier:
   Exclude:
     - 'bin/bundle'
 
+Style/WordArray:
+  Exclude:
+    - 'db/schema.rb'
 Metrics/LineLength:
   Exclude:
     - 'bin/*'

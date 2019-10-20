@@ -27,29 +27,23 @@
       Producto:
     %p=@campain.product
 
-
 .column.is-flex.is-full.is-justified-centered
   .buttons.are-small
     %button.button.is-success.has-regular-margin#add-node
       Añadir nodo
-
-    %button.button.is-primary.has-regular-margin#edit-node
+    %button.button.is-primary.has-regular-margin#add-edge
       Añadir arista
-
+    %button.button.is-warning.has-regular-margin#edit-node
+      Editar nodo
     %button.button.is-danger.has-regular-margin#delete-node
       Eliminar selección
 
 #vis-container.vis-container
 
-
 #network-popUp.network-popup
   %span#operation node
-  %br
-  %table{style: "margin:auto;"}
-    %tr
-      %td label
-      %td
-        %input#node-label{value: "new value"}
+  %label{ for: "node-label"}
+  %input.input.field.is-small#node-label{value: "new value"}
   .buttons.are-small
     %input.button.is-success#saveButton{type: "button", value: "Guardar", href: "#{community_campain_nodes_path(@campain)}"}
     %input.button.is-danger#cancelButton{type:  "button", value: "Cancelar"}
@@ -57,7 +51,6 @@
 %a#currentPath{href: "#{community_campain_path(@campain)}"}
 %h3
   Coworkers
-
 %table.table.has-full-width.has-regular-margin
   %thead
     %tr
@@ -73,7 +66,6 @@
             %p=coworker.user&.email
           %td
             = t("coworker.roles.#{Coworker.roles.key(coworker&.role)}")
-
 
 %h3.has-regular-margin
   Agregar empledo
