@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# # frozen_string_literal: true
+
 umbrella = Company.create_or_find_by!(name: 'Umbrella',
                                       legal_representant_name: 'Aaron Barreto',
                                       legal_representant_email: 'aaron@gmail.com',
@@ -39,13 +41,15 @@ User.create_or_find_by!(email: 'finance@gmail.com',
                         roles_mask: 64,
                         company: umbrella)
 
-iphone_campain = Campain.create_or_find_by!(name: 'iPhone 11',
-                                            start_date: Time.now,
-                                            end_date: Time.now + 1.week,
-                                            objective: 'Promocionar neuvo producto',
-                                            campain_type: 1,
-                                            product: 'iPhone11',
-                                            manager: community_manager)
+iphone_campain = Campain.create_or_find_by(name: 'iPhone 11',
+                                           start_date: Time.now,
+                                           end_date: Time.now + 1.week,
+                                           objective: 'Promocionar neuvo producto',
+                                           campain_type: 'Promocion',
+                                           product: 'iPhone11',
+                                           manager: community_manager,
+                                           company: umbrella,
+                                           image: Rack::Test::UploadedFile.new('test/fixtures/files/example.jpg', 'image/jpg'))
 
 Coworker.create_or_find_by!(user: content_creator,
                             campain: iphone_campain,
