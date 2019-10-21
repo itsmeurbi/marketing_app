@@ -1,5 +1,6 @@
 import vis from "vis-network"
 import axios from "axios"
+import bulmaCollapsible from '@creativebulma/bulma-collapsible';
 
 document.addEventListener("DOMContentLoaded", function() {
   const csrfToken = document.querySelector("meta[name=csrf-token]").content;
@@ -12,7 +13,27 @@ document.addEventListener("DOMContentLoaded", function() {
   getCurrentNetwork().then((response) => processResponse(response))
                      .then((data) => setNetworkData(data, network));
   buildForms(network);
+  network.on("doubleClick", function (params) {
+    if(params.nodes.length > 0){
+      getPostform(params.nodes[0])
+    }
+  });
 })
+
+function getPostform(nodeId){
+  let url = document.getElementById('postForm').getAttribute("href") + `/${nodeId}/posts/new.json`;
+  axios.get(url)
+       .then((response) => {
+         if(response.status == 200){
+          eval(response.data)
+         }else{
+           console.log(response.data);
+         }
+       })
+       .catch((error) => {
+         console.log(error);
+       });
+}
 
 function buildForms(network){
   document.getElementById("add-node").addEventListener("click", () => {
