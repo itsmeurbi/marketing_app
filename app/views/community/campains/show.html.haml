@@ -49,6 +49,11 @@
     %input.button.is-danger#cancelButton{type:  "button", value: "Cancelar"}
 %a#createEdgeLink{href: "#{community_edges_path}"}
 %a#currentPath{href: "#{community_campain_path(@campain)}"}
+
+.column.is-11-mobile.is-6-tablet.is-5-widescreen
+  .column
+    #postForm{href: "#{community_nodes_path}" }
+
 %h3
   Coworkers
 %table.table.has-full-width.has-regular-margin

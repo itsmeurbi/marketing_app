@@ -4,6 +4,7 @@ class Node < ApplicationRecord
   has_many :edges, foreign_key: 'from_id', dependent: :destroy
   validates :label, presence: true
   before_save :define_node_color
+  has_one :post
 
   private
 
