@@ -1,10 +1,16 @@
-.column.is-two-thirds-tablet.is-one-third-desktop.is-one-quarter-fullhd
-  %h2
-    ¿Olvidaste tu contraseña?
-  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    = f.error_notification
-    .form-inputs
-      = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, label: 'E-mail'
-    .form-actions.is-flex.is-justified-centered
-      = f.button :submit, "Enviarme instrucciones", class: 'is-primary'
-  = render "devise/shared/links"
+.column.is-11-mobile.is-6-tablet.is-5-widescreen
+  .box
+    .column
+      %h2.is-size-3.is-size-4-mobile
+        Recupera tu contraseña
+    = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      .columns
+        .column
+          = f.label :email, label: 'E-mail', class: "label"
+          .control.has-icons-left.has-icons-right.field
+            %span.icon.is-small.is-left
+              %i.fa.fa-envelope
+            = f.input :email, required: true, autofocus: true, autocomplete: "email", placeholder: "#{t("placeholders.email")}"
+      .column.is-5-widescreen.is-8-tablet.is-6-mobile
+        = f.button :submit, "Enviarme instrucciones", class: 'is-primary'
+      = render "devise/shared/links"

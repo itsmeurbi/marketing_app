@@ -6,12 +6,15 @@ Metrics/BlockLength:
     - 'config/environments/*'
     - 'db/schema.rb'
     - 'config/initializers/*'
+    - 'config/routes.rb'
 
 Metrics/CyclomaticComplexity:
   Max: 9
 
 Metrics/MethodLength:
   Max: 13
+  Exclude:
+    - 'db/migrate/*.rb'
 
 Metrics/PerceivedComplexity:
   Max: 9
@@ -23,11 +26,17 @@ Style/IfUnlessModifier:
   Exclude:
     - 'bin/bundle'
 
+Style/WordArray:
+  Exclude:
+    - 'db/schema.rb'
 Metrics/LineLength:
   Exclude:
     - 'bin/*'
     - 'config/**/*'
     - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'db/migrate/*.rb'
+    - 'app/dashboards/*.rb'
   Max: 90
 
 Style/StringLiterals:

@@ -10,16 +10,19 @@ class CampainDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    manager: Field::BelongsTo.with_options(class_name: 'User'),
     id: Field::Number,
+    manager: Field::BelongsTo.with_options(class_name: 'User',
+                                           scope: -> { User.with_role(:community_manager) }),
+    image: Field::ActiveStorage,
     name: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    start_date: Field::DateTime,
-    end_date: Field::DateTime,
+    created_at: ShortDateField,
+    updated_at: ShortDateField,
+    start_date: ShortDateField,
+    end_date: ShortDateField,
     objective: Field::String,
-    campain_type: Field::Number,
+    campain_type: Field::String,
     product: Field::String,
+    company: Field::Polymorphic.with_options(classes: [Company, Corporation]),
     manager_id: Field::Number
   }.freeze
 
@@ -29,9 +32,9 @@ class CampainDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    manager
-    id
     name
+    manager
+    company
     created_at
   ].freeze
 
@@ -42,11 +45,13 @@ class CampainDashboard < Administrate::BaseDashboard
     manager
     product
     campain_type
+    company
     objective
     created_at
     updated_at
     start_date
     end_date
+    image
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,7 +65,8 @@ class CampainDashboard < Administrate::BaseDashboard
     objective
     campain_type
     product
-    manager_id
+    company
+    image
   ].freeze
 
   # COLLECTION_FILTERS

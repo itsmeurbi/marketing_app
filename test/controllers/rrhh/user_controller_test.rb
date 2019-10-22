@@ -8,6 +8,7 @@ module RRHH
       login_as users(:rrhh)
 
       get rrhh_users_path
+
       assert_response :success
     end
 
@@ -15,7 +16,17 @@ module RRHH
       login_as users(:designer)
 
       get rrhh_users_path
+
       assert_response :redirect
+    end
+
+    test 'it response success when rrhh access to user show' do
+      user = users(:designer)
+      login_as users(:rrhh)
+
+      get rrhh_user_path(user)
+
+      assert_response :success
     end
   end
 end

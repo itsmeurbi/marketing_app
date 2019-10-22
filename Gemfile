@@ -6,11 +6,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'administrate', git: 'https://github.com/thoughtbot/administrate.git'
+gem 'administrate-field-active_storage'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bulma-rails'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
+gem 'font-awesome-rails'
+gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'haml-rails', '~> 2.0'
+gem 'i18n-debug'
 gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'puma', '~> 3.11'
