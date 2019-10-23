@@ -1,0 +1,6 @@
+= simple_form_for(post, url: action, remote: :true, format: :js) do |f|
+  .field
+    = f.label :title, t("helpers.label.post.title"), class: 'label'
+    = f.input :title, class: 'input', placeholder: t("placeholders.title")
+  .column.is-5-widescreen.is-8-tablet.is-6-mobile
+    = f.submit t("helpers.label.post.submit"), class: 'button is-primary'

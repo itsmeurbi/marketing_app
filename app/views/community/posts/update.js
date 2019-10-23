@@ -1,0 +1,1 @@
+document.getElementById("postForm").innerHTML = ''
