@@ -1,8 +1,13 @@
 
-%nav.navbar.is-transparent{"aria-label" => "main navigation", :role => "navigation"}
-  .navbar-menu
+%nav.navbar.is-transparent{"aria-label": "main navigation", role: "navigation"}
+  .navbar-brand
+    = link_to image_tag("app-logo.png"), root_path, class: 'navbar-item'
+    %a.navbar-burger{"aria-expanded": "false", "aria-label": "menu", "data-target": "navMenu", role: "button"}
+      %span{"aria-hidden": "true"}
+      %span{"aria-hidden": "true"}
+      %span{"aria-hidden": "true"}
+  #navMenu.navbar-menu
     .navbar-start
-      = link_to image_tag("app-logo.png"), root_path, class: 'navbar-item'
     .navbar-end
       .navbar-item.has-dropdown.is-hoverable.has-double-margin-right
         -if current_user
