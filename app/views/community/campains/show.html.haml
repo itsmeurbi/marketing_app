@@ -10,12 +10,12 @@
   .column.is-one-quarter.is-half-mobile
     .has-text-weight-semibold
       Fecha de inicio:
-    %p=@campain.start_date
+    %p#startDate=@campain.start_date
 
   .column.is-one-quarter.is-half-mobile
     .has-text-weight-semibold
       Fecha de termino:
-    %p=@campain.end_date
+    %p#endDate=@campain.end_date
 
   .column.is-one-quarter.is-half-mobile
     .has-text-weight-semibold
@@ -71,6 +71,8 @@
             %p=coworker.user&.email
           %td
             = t("coworker.roles.#{Coworker.roles.key(coworker&.role)}")
+
+%div#timeline
 
 %h3.has-regular-margin
   Agregar empledo
