@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   })
   
   function drawChart() {
-    var container = document.getElementById('timeline');
+    let container = document.getElementById('timeline');
     var chart = new google.visualization.Timeline(container);
     var dataTable = new google.visualization.DataTable();
     let startDate = document.getElementById("startDate").textContent
@@ -14,14 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
     dataTable.addColumn({ type: 'date', id: 'Start' });
     dataTable.addColumn({ type: 'date', id: 'End' });
   
-    if (new Date()  < new Date(endDate) ){
+    if (new Date()  > new Date(endDate) ){
       dataTable.addRows([[ "Progreso actual",  new Date(startDate),  new Date() ]]);
     }
-    dataTable.addRows([[ "Progreso actual",  new Date(startDate),  new Date(endDate) ]]);
+    dataTable.addRows([[ "Días de campaña",  new Date(startDate),  new Date(endDate) ]]);
   
-    var options = {timeline: { groupByRowLabel: true } };
+    var options = {timeline: { groupByRowLabel: true },
+      colors: ['#B61F39', '#504F51']};
   
     chart.draw(dataTable, options);
   }
-
-  let container = document.getElementById('timeline');
