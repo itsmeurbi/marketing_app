@@ -23,7 +23,7 @@ class CampainTest < ActiveSupport::TestCase
                        product: 'iPhone 11',
                        manager: users(:manager))
 
-    refute vans.valid?
+    assert vans.valid?
   end
 
   test 'campain is not valid with not start_date' do
