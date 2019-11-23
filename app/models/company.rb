@@ -26,5 +26,6 @@ class Company < ApplicationRecord
 
   def available_employees(campain)
     employees.where.not(id: campain.coworkers.pluck(:user_id))
+             .where(roles_mask: Coworker.roles_mask_for_user)
   end
 end
