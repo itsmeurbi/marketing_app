@@ -53,17 +53,17 @@ iphone_campain = Campain.create_or_find_by(name: 'iPhone 11',
 
 Coworker.create_or_find_by!(user: content_creator,
                             campain: iphone_campain,
-                            role: 1)
+                            role: 0)
 
 Coworker.create_or_find_by!(user: designer,
                             campain: iphone_campain,
-                            role: 2)
-Coworker.create_or_find_by!(user: content_creator,
-                            campain: iphone_campain,
                             role: 1)
 Coworker.create_or_find_by!(user: content_creator,
                             campain: iphone_campain,
-                            role: 1)
+                            role: 0)
 Coworker.create_or_find_by!(user: content_creator,
                             campain: iphone_campain,
-                            role: 1)
+                            role: 0)
+Coworker.create_or_find_by!(user: content_creator,
+                            campain: iphone_campain,
+                            role: 0)
