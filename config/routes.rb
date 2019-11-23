@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resources :coworkers
     end
     resources :nodes, only: %i[index] do
-      resources :posts, only: %i[new edit update create]
+      resources :posts, only: %i[new edit update create destroy]
     end
     resources :edges, only: %i[create update destroy]
     root to: 'campains#index'

@@ -35,6 +35,14 @@ module Community
       end
     end
 
+    def destroy
+      @post = Post.find(params[:id])
+      @post.destroy
+      respond_to do |format|
+        format.js { render 'community/posts/delete.js' }
+      end
+    end
+
     private
 
     def build_node
