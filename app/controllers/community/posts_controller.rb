@@ -13,7 +13,7 @@ module Community
     end
 
     def create
-      @post = @node.build_post(title: params[:post][:title], user: current_user)
+      @post = @node.build_post(post_params)
       @post.save
       respond_to do |format|
         format.js { render 'community/posts/create.js' }
@@ -29,7 +29,7 @@ module Community
 
     def update
       @post = Post.find(params[:id])
-      @post.update(title: params[:post][:title])
+      @post.update(post_params)
       respond_to do |format|
         format.js { render 'community/posts/update.js' }
       end
@@ -43,6 +43,10 @@ module Community
 
     def verify_node
       redirect_to action: :edit, id: @node.post, format: :json if @node.post
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :coworker_id).merge(user: current_user)
     end
   end
 end

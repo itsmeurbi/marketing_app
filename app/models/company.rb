@@ -25,6 +25,6 @@ class Company < ApplicationRecord
   validates :name, length: { in: 5..20 }
 
   def available_employees(campain)
-    employees.where.not(id: campain.coworkers.pluck(:id) )
+    employees.where.not(id: campain.coworkers.pluck(:user_id))
   end
 end
