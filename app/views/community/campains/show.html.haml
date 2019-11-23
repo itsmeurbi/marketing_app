@@ -78,12 +78,10 @@
   .field.is-horizontal.has-regular-margin
     .field-body
       .field
-        .column.is-paddingless
-          = f.label :user, 'Empleado'
-          = f.input :user, collection: current_user.company.employees.map { |employee| [ employee.email, employee.id ] }, include_blank: false
+        .column.is-paddingless.select
+          = f.input :user, collection: current_user.company.available_employees(@campain).map { |employee| [ employee.email, employee.id ] }, include_blank: false, prompt: "Escoge al empleado"
       .field
-        .column.is-paddingless
-          = f.label :role, 'Rol'
-          = f.input :role, collection: Coworker.roles.keys.map { |role| [t("coworker.roles.#{role}"), role.to_s ] }, include_blank: false
+        .column.is-paddingless.select
+          = f.input :role, collection: Coworker.roles.keys.map { |role| [t("coworker.roles.#{role}"), role.to_s ] }, include_blank: false, prompt: "Escoge un rol"
   = f.submit 'Registrar', class: 'button is-primary'
 

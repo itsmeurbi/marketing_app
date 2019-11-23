@@ -2,6 +2,7 @@
 
 class Company < ApplicationRecord
   has_many :employees, class_name: 'User'
+
   has_many :campains, as: :company
 
   validates :name,
@@ -22,4 +23,8 @@ class Company < ApplicationRecord
   validates :rfc, length: { in: 16..17 }
   validates :location, length: { in: 20..40 }
   validates :name, length: { in: 5..20 }
+
+  def available_employees(campain)
+    employees.where.not(id: campain.coworkers.pluck(:id) )
+  end
 end
