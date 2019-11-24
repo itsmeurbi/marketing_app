@@ -40,6 +40,11 @@ Rails.application.routes.draw do
     resources :posts, only: %i[update]
   end
 
+  namespace :designer do
+    resources :campains, only: %i[index show] do
+    end
+  end
+
   resources :petitions
 
   devise_for :users, controllers: { registrations: 'registrations' }

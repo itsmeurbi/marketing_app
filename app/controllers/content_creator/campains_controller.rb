@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ContentCreator
-  class CampainsController < ApplicationController
+  class CampainsController < BaseController
     before_action :initialize_coworker, only: %i[show]
 
     def index
