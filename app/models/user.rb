@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :company
   has_many :campains, foreign_key: 'manager_id'
+  has_many :petitions
 
   devise :database_authenticatable, :recoverable, :invitable, validate_on_invite: true
 

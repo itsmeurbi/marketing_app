@@ -1,1 +1,1 @@
-document.getElementById("postForm").innerHTML = "<%= escape_javascript(render 'community/posts/form.html.haml', post: @post, action: community_node_posts_path(@node)).html_safe %>"
+document.getElementById("postForm").innerHTML = "<%= escape_javascript(render 'community/posts/form.html.haml', post: @post, submit: "Crear", action: community_node_posts_path(@node)).html_safe %>"
