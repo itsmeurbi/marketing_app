@@ -32,7 +32,7 @@
 
 .column.is-12.has-regular-padding-top
   %p.is-size-5.has-text-weight-semibold
-    Peticiones
+    Peticiones pendientes
 
     - @petitions.each do |petition|
 
@@ -65,13 +65,15 @@
             .column.is-11
               %p.is-size-5.has-text-weight-semibold
                 Datos de la publicación
-              = simple_form_for(petition.post, url: content_creator_post_path) do |f|
-                .field
+              = simple_form_for(petition.post, url: content_creator_post_path(petition.post)) do |f|
+                .field.has-regular-padding-top
                   = f.label :body, "Post a publicar", class: "label"
                   .control
                     = f.input :body, placeholder: "Agregar contenido a la publicación"
                 - if petition.post.content.attached?
-                  = image_tag(petition.post.content)
+                  %p.is-size-5.has-text-weight-semibold
+                    Imagen a publicar
+                  = image_tag(petition.post.content, class: "image is-128x128")
                 .file
                   %label.file-label
                     = f.input :content, placeholder: "Agregar contenido a la publicación", input_html: {class: "file-input"}

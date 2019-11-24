@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     end
     resources :posts, only: %i[update]
   end
+
   resources :petitions
 
   devise_for :users, controllers: { registrations: 'registrations' }

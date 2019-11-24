@@ -18,7 +18,7 @@ class PetitionsController < ApplicationController
     else
       flash[:alert] = 'Error actualizando el estado de la peticion'
     end
-    redirect_to community_campain_path(@petition.post.node.campain)
+    redirect_user
   end
 
   private
@@ -27,5 +27,13 @@ class PetitionsController < ApplicationController
     params.require(:petition).permit(:content, :message,
                                      :status, :node, :coworker_id,
                                      :post_id)
+  end
+
+  def redirect_user
+    if current_user.is_community_manager?
+      redirect_to community_campain_path(@petition.post.node.campain)
+    elsif current_user.is_content_creator?
+      redirect_to content_creator_campain_path(@petition.post.node.campain)
+    end
   end
 end
