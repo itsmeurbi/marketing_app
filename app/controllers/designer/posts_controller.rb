@@ -15,7 +15,7 @@ module Designer
     private
 
     def post_params
-      params.require(:post).permit(:content, :body)
+      params.require(:post).permit(:content, :content_status)
     end
   end
 end

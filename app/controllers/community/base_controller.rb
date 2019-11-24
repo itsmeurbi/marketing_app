@@ -6,7 +6,7 @@ module Community
     layout 'application'
 
     def validate_user_role!
-      return if current_user.is_content_community_manager?
+      return if current_user.is_community_manager?
 
       flash[:alert] = 'Accesos permitido solo para community managers'
       redirect_to root_path

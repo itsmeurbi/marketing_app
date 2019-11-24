@@ -10,7 +10,9 @@ module Designer
 
     def show
       @campain = Campain.find(params[:id])
-      @petitions = Petition.coworker_petitions(@campain, @coworker).pending
+      @petitions = Petition.coworker_petitions(@campain, @coworker)
+                           .pending
+                           .where.not(posts: { content_status: :approved })
     end
 
     private

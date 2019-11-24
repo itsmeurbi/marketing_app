@@ -39,7 +39,7 @@
       .card.has-regular-margin
         .card-header
           .card-header-title
-            Datos del post
+            %p=petition.message
             %a#petitionsCollapsibleButton.card-header-icon.is-hidden-fullscreen{ "href": "#postForm", "data-action": "collapse", "aria-label": "more options" }
               %span.icon
                 %i.fa.fa-angle-down{ "aria-hidden": "true" }
@@ -47,22 +47,10 @@
           .columns.has-regular-margin
             .column
               %p.is-size-6.has-text-weight-semibold
-                Mensaje de la petición
-              %p=petition.message
-            .column
-              %p.is-size-6.has-text-weight-semibold
                 Estado
               %p=t("statuses.#{petition.status}")
-            .column.is-3
-              %p.is-size-6.has-text-weight-semibold
-                Cambiar estado
-              %p
-                - if petition.status == "active" || petition.status == "approved"
-                  = link_to 'Pendiente', petition_path(petition, status: :pending), method: :patch
-                - else
-                  = link_to 'Aprovada', petition_path(petition, status: :approved), method: :patch
-          .columns.is-centered.is-flex
-            .column.is-11.is-11-mobile
+          .columns.has-regular-margin
+            .column
               %p.is-size-5.has-text-weight-semibold
                 Datos de la publicación
               = simple_form_for(petition.post, url: designer_post_path(petition.post)) do |f|
@@ -70,15 +58,20 @@
                   %p.is-size-5.has-text-weight-semibold
                     Imagen a publicar
                   = image_tag(petition.post.content, class: "image is-128x128")
-                .file
-                  %label.file-label
-                    = f.input :content, placeholder: "Agregar contenido a la publicación", input_html: {class: "file-input"}
-                    %span.file-cta
-                      %span.file-icon
-                        %i.fa.fa-upload
-                      %span.file-label
-                        Cargar archivo…
-
+                .field.has-regular-padding-top
+                  .file
+                    %label.file-label
+                      = f.input :content, placeholder: "Agregar contenido a la publicación", input_html: {class: "file-input"}
+                      %span.file-cta
+                        %span.file-icon
+                          %i.fa.fa-upload
+                        %span.file-label
+                          Cargar archivo…
+                .field.has-regular-padding-top
+                  = f.label :content_status, "Estado del contenido", class: "label"
+                  .control
+                    .select.is-marginless
+                      = f.select :content_status, Post.content_statuses.keys.map{ |status| [ t("content_status.#{status}"), status] }, include_blank: false, prompt: "Estado del contenido", disabled: :approved
                 .column.is-12
                   = f.submit "Actualizar post", class: 'button is-primary'
 
