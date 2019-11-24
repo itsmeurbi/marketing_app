@@ -54,7 +54,9 @@ module Community
     end
 
     def post_params
-      params.require(:post).permit(:title, :coworker_id).merge(user: current_user)
+      params.require(:post).permit(:title, :coworker_id,
+                                   :publish_at, :auto_publish)
+            .merge(user: current_user)
     end
   end
 end

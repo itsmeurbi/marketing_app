@@ -116,6 +116,10 @@ es:
       default: "%Y/%m/%d"
       short: "%d-%b-%Y"
       long: "%d de %B del %Y a las %H:%M"
+    order:
+      - :day
+      - :month
+      - :year
   errors:
     format: "%{message}"
   generic:
