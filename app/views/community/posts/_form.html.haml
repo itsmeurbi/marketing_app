@@ -1,12 +1,61 @@
-= simple_form_for(post, url: action, remote: :true, format: :js) do |f|
-  .field
-    = f.label :title, t("helpers.label.post.title"), class: 'label'
-    = f.input :title, class: 'input', placeholder: t("placeholders.title")
-  .field
-    = f.label :coworker_id, "Encargado del nodo", class: "label"
-    .select
-      = f.select :coworker_id, @node.campain.coworkers.map { |coworker| [coworker.email, coworker.id] }, include_blank: false, prompt: "Selecciona el encargado del nodo", selected: post.responsable&.id
-  .column.is-5-widescreen.is-8-tablet.is-6-mobile
-    = f.submit t("helpers.label.post.submit"), class: 'button is-primary'
-    - unless post.new_record?
-      = link_to "Eliminar", community_node_post_path(post.node, post), method: :delete, class: "fa fa-trash", remote: true
+.card-content
+  = simple_form_for(post, url: action, remote: :true, format: :js) do |f|
+    .field.is-horizontal
+      .field-body
+        .field
+          = f.label :title, "Titulo del post", class: "label"
+          .control
+            = f.input :title, class: 'input', placeholder: t("placeholders.title")
+        .field
+          = f.label :coworker_id, "Responsable del post", class: "label"
+          .control
+            .select.is-marginless
+              = f.select :coworker_id, @node.campain.coworkers.map { |coworker| [coworker.email, coworker.id] }, include_blank: false, prompt: "Selecciona el encargado del nodo", selected: post.responsable&.id
+    .column.is-12
+      = f.submit submit, class: 'button is-primary'
+      - unless post.new_record?
+        = link_to " Eliminar", community_node_post_path(post.node, post), method: :delete, class: "fa fa-trash has-regular-margin", remote: true, data: { confirm: "¿Seguro que deseas eliminar el post?"}
+  .has-regular-padding-top
+    %p.is-size-5.has-text-weight-semibold
+      Peticiones del post
+    %table.table.has-full-width.has-regular-margin
+      %thead
+        %tr
+          %th
+            Encargado
+          %th
+            Mensage
+          %th
+            Estado
+      %tbody
+        - post.petitions.each do |petition|
+          - if petition.user
+            %tr
+              %td
+                %p=petition.responsable.email
+              %td
+                %p=petition.message
+              %td
+                %p=t("statuses.#{petition.status}")
+
+  .has-regular-padding-top
+    = simple_form_for(Petition.new) do |f|
+      .label.is-size-5
+        Crear nueva peticion
+      = f.input :post_id, input_html: {class: "is-hidden", value: post.id}
+      .field.is-horizontal
+        .field-body
+          .field
+            = f.label :coworker_id, "Asignar peticion a:", class: "label"
+            .control
+              .select.is-marginless
+                = f.select :coworker_id, @node.campain.coworkers.map { |coworker| [coworker.email, coworker.id] }, prompt: "Selecciona el encargado del nodo", selected: post.responsable&.id
+          .field
+            = f.label :status, "Estado de la peticion", class: "label"
+            .control
+              .select.is-marginless
+                = f.select :status, Petition.statuses.keys.map { |status| [ t("statuses.#{status}"), status ] }, prompt: "Estatus de la peticion"
+      = f.label :message, 'Descripcion', class: "label"
+      = f.input :message, class: "input", placeholder: "Describa la peticion a generar"
+      .column.is-12
+        = f.submit t("helpers.label.post.submit"), class: 'button is-primary'

@@ -52,46 +52,55 @@
 %a#createEdgeLink{href: "#{community_edges_path}"}
 %a#currentPath{href: "#{community_campain_path(@campain)}"}
 
-.column.is-11-mobile.is-6-tablet.is-5-widescreen
-  .column
-    #postForm{href: "#{community_nodes_path}" }
 
-.card.has-regular-margin
-  .card-header
-    .card-header-title
-      Equipo de trabajo
-      %a.card-header-icon.is-hidden-fullscreen{ "href": "#coworkersContainer", "data-action": "collapse", "aria-label": "more options" }
-        %span.icon
-          %i.fa.fa-angle-down{ "aria-hidden": "true" }
-  #coworkersContainer.is-collapsible
-    .card-content
-      %table.table.has-full-width.has-regular-margin
-        %thead
-          %tr
-            %th
-              Email
-            %th
-              Rol
-        %tbody
-          - @campain.coworkers.each do |coworker|
-            - if coworker.user
-              %tr
-                %td
-                  %p=coworker.user&.email
-                %td
-                  = t("coworker.roles.#{Coworker.roles.key(coworker&.role)}")
+.column.is-12
+  .card.has-regular-margin
+    .card-header
+      .card-header-title
+        Datos del post
+        %a#petitionsCollapsibleButton.card-header-icon.is-hidden-fullscreen{ "href": "#postForm", "data-action": "collapse", "aria-label": "more options" }
+          %span.icon
+            %i.fa.fa-angle-down{ "aria-hidden": "true" }
+    #postForm.is-collapsible{href: "#{community_nodes_path}" }
 
-      %p.has-regular-margin.is-size-5.has-text-weight-semibold
-        Agregar empledo
-      = simple_form_for(@coworker, url: community_campain_coworkers_path(@campain), method: :post, defaults: { wrapper: false }) do |f|
-        .field.is-horizontal.has-regular-margin
-          .field-body
-            .field
-              .column.is-paddingless.select
-                = f.input :user, collection: current_user.company.available_employees(@campain).map { |employee| [ employee.email, employee.id ] }, include_blank: false, prompt: "Escoge al empleado"
-            .field
-              .column.is-paddingless.select
-                = f.input :role, collection: Coworker.roles.keys.map { |role| [t("coworker.roles.#{role}"), role.to_s ] }, include_blank: false, prompt: "Escoge un rol"
-            .field
-              .column.is-paddingless
-                = f.submit 'Registrar', class: 'button is-primary has-regular-margin'
+.column.is-12
+  .card.has-regular-margin
+    .card-header
+      .card-header-title
+        Equipo de trabajo
+        %a.card-header-icon.is-hidden-fullscreen{ "href": "#coworkersContainer", "data-action": "collapse", "aria-label": "more options" }
+          %span.icon
+            %i.fa.fa-angle-down{ "aria-hidden": "true" }
+    #coworkersContainer.is-collapsible
+      .card-content
+
+        %table.table.has-full-width.has-regular-margin
+          %thead
+            %tr
+              %th
+                Email
+              %th
+                Rol
+          %tbody
+            - @campain.coworkers.each do |coworker|
+              - if coworker.user
+                %tr
+                  %td
+                    %p=coworker.user&.email
+                  %td
+                    = t("coworker.roles.#{Coworker.roles.key(coworker&.role)}")
+
+        %p.has-regular-margin.is-size-5.has-text-weight-semibold
+          Agregar empledo
+        = simple_form_for(@coworker, url: community_campain_coworkers_path(@campain), method: :post, defaults: { wrapper: false }) do |f|
+          .field.is-horizontal.has-regular-margin
+            .field-body
+              .field
+                .column.is-paddingless.select
+                  = f.input :user, collection: current_user.company.available_employees(@campain).map { |employee| [ employee.email, employee.id ] }, prompt: "Escoge al empleado"
+              .field
+                .column.is-paddingless.select
+                  = f.input :role, collection: Coworker.roles.keys.map { |role| [t("coworker.roles.#{role}"), role.to_s ] }, prompt: "Escoge un rol"
+              .field
+                .column.is-paddingless
+                  = f.submit 'Registrar', class: 'button is-primary has-regular-margin'

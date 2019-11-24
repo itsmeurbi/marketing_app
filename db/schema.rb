@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_233437) do
+ActiveRecord::Schema.define(version: 2019_11_24_021936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 2019_11_06_233437) do
     t.index ["user_id"], name: "index_coworkers_on_user_id"
   end
 
+  create_table "coworkers_in_post", force: :cascade do |t|
+    t.bigint "coworker_id"
+    t.bigint "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coworker_id"], name: "index_coworkers_in_post_on_coworker_id"
+    t.index ["post_id"], name: "index_coworkers_in_post_on_post_id"
+  end
+
   create_table "edges", force: :cascade do |t|
     t.bigint "from_id"
     t.bigint "to_id"
@@ -118,6 +127,20 @@ ActiveRecord::Schema.define(version: 2019_11_06_233437) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "color"
     t.index ["campain_id"], name: "index_nodes_on_campain_id"
+  end
+
+  create_table "petitions", force: :cascade do |t|
+    t.text "message"
+    t.text "content"
+    t.integer "status"
+    t.bigint "user_id"
+    t.bigint "coworker_id"
+    t.bigint "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coworker_id"], name: "index_petitions_on_coworker_id"
+    t.index ["post_id"], name: "index_petitions_on_post_id"
+    t.index ["user_id"], name: "index_petitions_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

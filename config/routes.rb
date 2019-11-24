@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     root to: 'campains#index'
   end
 
+  resources :petitions
+
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'landing_page#index'
 end

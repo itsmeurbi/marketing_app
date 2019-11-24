@@ -6,7 +6,7 @@ module Community
       campain = Campain.find(params[:campain_id])
       respond_to do |format|
         format.json do
-          node = campain.nodes.build(label: params[:label], color: '')
+          node = campain.nodes.build(label: params[:label], color: '#34dbeb')
           if node.save
             render json: node
           else

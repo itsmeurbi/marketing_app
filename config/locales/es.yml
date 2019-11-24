@@ -197,6 +197,10 @@ es:
     password: "********"
     title: "Ingresa un título"
     body: "Describe un contenido"
+  statuses:
+    active: Activa
+    unaproved: Rechazada
+    aproved: Aprobada
   time:
     formats:
       default: "%Y/%m/%d"
