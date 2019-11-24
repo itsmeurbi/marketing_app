@@ -11,10 +11,31 @@
           .control
             .select.is-marginless
               = f.select :coworker_id, @node.campain.coworkers.map { |coworker| [coworker.email, coworker.id] }, include_blank: false, prompt: "Selecciona el encargado del nodo", selected: post.responsable&.id
+        .field
+          = f.label :publish_at, "Fecha de publicación", class: "label"
+          .control
+            = f.input :publish_at
+        .field
+          = f.label :auto_publish, "Auto-publicar", class: "label"
+          .control
+            = f.input_field :auto_publish, as: :boolean
+
     .column.is-12
       = f.submit submit, class: 'button is-primary'
       - unless post.new_record?
         = link_to " Eliminar", community_node_post_path(post.node, post), method: :delete, class: "fa fa-trash has-regular-margin", remote: true, data: { confirm: "¿Seguro que deseas eliminar el post?"}
+
+  - unless post.new_record?
+    %h3.is-size-4
+      Contenido del post
+    %p
+      = post.body || "Aún no se ha escrito nada para este post"
+    %p
+      - if post.content.attached?
+        = image_tag(post.content)
+      - else
+        El post aún no tiene contenido adjunto
+
   - unless post.new_record?
     .has-regular-padding-top
       %p.is-size-5.has-text-weight-semibold
