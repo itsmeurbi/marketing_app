@@ -19,7 +19,12 @@
           = f.label :auto_publish, "Auto-publicar", class: "label"
           .control
             = f.input_field :auto_publish, as: :boolean
-
+        - unless post.new_record?
+          .field
+            = f.label :content_status, "Estado del contenido", class: "label"
+            .control
+              .select.is-marginless
+                = f.select :content_status, Post.content_statuses.keys.map{ |status| [ t("content_status.#{status}"), status] }, include_blank: false, prompt: "Estado del contenido"
     .column.is-12
       = f.submit submit, class: 'button is-primary'
       - unless post.new_record?
@@ -66,7 +71,10 @@
                     - if petition.status == "active" || petition.status == "approved"
                       = link_to 'Pendiente', petition_path(petition, status: :pending), method: :patch
                     - else
-                      = link_to 'Aprovada', petition_path(petition, status: :approved), method: :patch
+                      - if petition.post.approved?
+                        = link_to 'Aprovada', petition_path(petition, status: :approved), method: :patch
+                      - else
+                        Deberas aprobar el contenido del post
 
     .has-regular-padding-top
       = simple_form_for(Petition.new) do |f|

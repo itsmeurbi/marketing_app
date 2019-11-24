@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Community
-  class PostsController < ApplicationController
+  class PostsController < BaseController
     before_action :build_node
     before_action :verify_node, only: [:new]
 
@@ -55,7 +55,8 @@ module Community
 
     def post_params
       params.require(:post).permit(:title, :coworker_id,
-                                   :publish_at, :auto_publish)
+                                   :publish_at, :auto_publish,
+                                   :content_status)
             .merge(user: current_user)
     end
   end

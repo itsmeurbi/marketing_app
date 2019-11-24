@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ContentCreator
+module Designer
   class CampainsController < BaseController
     before_action :initialize_coworker, only: %i[show]
 
@@ -10,7 +10,9 @@ module ContentCreator
 
     def show
       @campain = Campain.find(params[:id])
-      @petitions = Petition.coworker_petitions(@campain, @coworker).pending
+      @petitions = Petition.coworker_petitions(@campain, @coworker)
+                           .pending
+                           .where.not(posts: { content_status: :approved })
     end
 
     private

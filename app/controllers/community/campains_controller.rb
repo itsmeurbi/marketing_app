@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Community
-  class CampainsController < ApplicationController
+  class CampainsController < BaseController
     def index
       @campains = current_user.campains
     end

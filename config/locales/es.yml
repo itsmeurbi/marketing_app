@@ -105,6 +105,10 @@ es:
       client: Clientes
       corporation: Corporaciones
       contact: Contactos
+  content_status:
+    pending: Pendiente
+    review: En revision
+    approved: Aprobado
   coworker:
     roles:
       content_creator: Creador de contenido

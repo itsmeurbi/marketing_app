@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Community
-  class CoworkersController < ApplicationController
+  class CoworkersController < BaseController
     def create
       @coworker = Coworker.new(coworker_params)
       if @coworker.save

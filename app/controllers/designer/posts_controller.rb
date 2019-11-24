@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ContentCreator
+module Designer
   class PostsController < BaseController
     def update
       @post = Post.find(params[:id])
@@ -9,13 +9,13 @@ module ContentCreator
       else
         flash[:alert] = 'Error actualizando el post'
       end
-      redirect_to content_creator_campain_path(@post.node.campain)
+      redirect_to designer_campain_path(@post.node.campain)
     end
 
     private
 
     def post_params
-      params.require(:post).permit(:content, :body)
+      params.require(:post).permit(:content, :content_status)
     end
   end
 end
