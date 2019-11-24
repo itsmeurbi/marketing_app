@@ -199,8 +199,8 @@ es:
     body: "Describe un contenido"
   statuses:
     active: Activa
-    unaproved: Rechazada
-    aproved: Aprobada
+    pending: Pendiente
+    approved: Aprobada
   time:
     formats:
       default: "%Y/%m/%d"

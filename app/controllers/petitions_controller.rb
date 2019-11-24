@@ -11,6 +11,16 @@ class PetitionsController < ApplicationController
     redirect_to community_campain_path(@petition.post.node.campain)
   end
 
+  def update
+    @petition = Petition.find(params[:id])
+    if @petition.update(status: params[:status])
+      flash[:notice] = 'Estado de la peticion actualizado'
+    else
+      flash[:alert] = 'Error actualizando el estado de la peticion'
+    end
+    redirect_to community_campain_path(@petition.post.node.campain)
+  end
+
   private
 
   def petition_params
