@@ -28,12 +28,17 @@ Rails.application.routes.draw do
       resources :coworkers
     end
     resources :nodes, only: %i[index] do
-      resources :posts, only: %i[new edit update create destroy]
+      resources :posts
     end
     resources :edges, only: %i[create update destroy]
     root to: 'campains#index'
   end
 
+  namespace :content_creator do
+    resources :campains, only: %i[index show] do
+    end
+    resources :posts, only: %i[update]
+  end
   resources :petitions
 
   devise_for :users, controllers: { registrations: 'registrations' }

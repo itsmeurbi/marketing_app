@@ -19,6 +19,8 @@
               = link_to 'Finance dashboar', finance_companies_path, class: "navbar-item"
             - if current_user.is_community_manager?
               = link_to 'Community dashboard', community_campains_path, class: "navbar-item"
+            - if current_user.is_content_creator?
+              = link_to 'Ir al dashboard', content_creator_campains_path, class: "navbar-item"
             %hr.navbar-divider
             = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: "navbar-item"
 

@@ -7,6 +7,10 @@ class Campain < ApplicationRecord
   has_many :edges, through: :nodes
   has_one_attached :image
   belongs_to :company, polymorphic: true
+  scope :coworker_campains, lambda { |user|
+                              joins(:coworkers).includes(coworkers: :user)
+                                               .where(coworkers: { user: user })
+                            }
 
   validates :name,
             :start_date,

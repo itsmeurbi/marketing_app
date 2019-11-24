@@ -7,4 +7,6 @@ class Petition < ApplicationRecord
   enum status: %i[active pending approved]
   validates :message, presence: true
   validates :status, presence: true
+
+  scope :coworker_petitions, ->(coworker) { where(responsable: coworker) }
 end
