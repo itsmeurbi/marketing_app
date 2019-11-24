@@ -7,4 +7,8 @@ class Coworker < ApplicationRecord
   validates :role, presence: true
 
   enum roles: %i[content_creator designer]
+
+  def self.roles_mask_for_user
+    [User.mask_for(:content_creator), User.mask_for(:designer)]
+  end
 end

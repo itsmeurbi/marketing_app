@@ -1,6 +1,5 @@
 import vis from "vis-network"
 import axios from "axios"
-import bulmaCollapsible from '@creativebulma/bulma-collapsible';
 
 document.addEventListener("DOMContentLoaded", function() {
   const csrfToken = document.querySelector("meta[name=csrf-token]").content;
