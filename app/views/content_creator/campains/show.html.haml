@@ -30,7 +30,7 @@
 %div#timeline
 
 
-.column.is-12.has-regular-padding-top
+.column.is-12.is-12-mobile.has-regular-padding-top
   %p.is-size-5.has-text-weight-semibold
     Peticiones pendientes
 
@@ -61,8 +61,8 @@
                   = link_to 'Pendiente', petition_path(petition, status: :pending), method: :patch
                 - else
                   = link_to 'Aprovada', petition_path(petition, status: :approved), method: :patch
-          .columns.is-centered
-            .column.is-11
+          .columns.is-centered.is-flex
+            .column.is-11.is-11-mobile
               %p.is-size-5.has-text-weight-semibold
                 Datos de la publicación
               = simple_form_for(petition.post, url: content_creator_post_path(petition.post)) do |f|

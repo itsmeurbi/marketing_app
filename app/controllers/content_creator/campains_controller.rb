@@ -10,7 +10,7 @@ module ContentCreator
 
     def show
       @campain = Campain.find(params[:id])
-      @petitions = Petition.coworker_petitions(@coworker)
+      @petitions = Petition.coworker_petitions(@campain, @coworker).pending
     end
 
     private
