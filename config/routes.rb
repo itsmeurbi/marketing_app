@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   namespace :designer do
     resources :campains, only: %i[index show] do
     end
+    resources :posts, only: %i[update]
   end
 
   resources :petitions
