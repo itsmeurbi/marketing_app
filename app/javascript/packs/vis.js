@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 })
 
-function getPostform(nodeId){
+const getPostform = (nodeId) => {
   let url = document.getElementById('postForm').getAttribute("href") + `/${nodeId}/posts/new.json`;
   axios.get(url)
        .then((response) => {
@@ -34,7 +34,7 @@ function getPostform(nodeId){
        });
 }
 
-function buildForms(network){
+const buildForms =(network) => {
   document.getElementById("add-node").addEventListener("click", () => {
     network.addNodeMode()
   });
@@ -55,13 +55,13 @@ function buildForms(network){
   document.getElementById('cancelButton').onclick = clearPopUp.bind();
 }
 
-function updateVisForm(labelTitle, saveAction){
+const updateVisForm = (labelTitle, saveAction) => {
   document.getElementById('operation').innerHTML = labelTitle;
   document.getElementById('network-popUp').style.display = 'block';
   document.getElementById('saveButton').onclick = saveAction;
 };
 
-function networkOptions(){
+const networkOptions = () => {
   return {
     manipulation: {
       enabled: true,
@@ -86,7 +86,7 @@ function networkOptions(){
   };
 }
 
-function editNode(data, callback){
+const editNode = (data, callback) => {
   let label = document.getElementById('node-label').value
   const url = document.getElementById('currentPath').getAttribute("href") + `/nodes/${data.id}.json`;
   axios.put(url, {label: label })
@@ -104,19 +104,19 @@ function editNode(data, callback){
   clearPopUp();
 }
 
-function requestNodeDelete(data, callback){
+const requestNodeDelete = (data, callback) => {
   data.nodes.forEach( nodeId => {
     deleteNode(nodeId, data, callback);
   });
 }
 
-function requestEdgeDelete(data, callback){
+const requestEdgeDelete = (data, callback) => {
   data.edges.forEach( edgeId => {
     deleteEdge(edgeId, data, callback);
   })
 }
 
-function deleteEdge(edgeId, data, callback){
+const deleteEdge = (edgeId, data, callback) => {
   const url = document.getElementById('createEdgeLink').getAttribute("href") + `/${edgeId}.json`;
   axios.delete(url)
   .then((response) => {
@@ -131,7 +131,7 @@ function deleteEdge(edgeId, data, callback){
   });
 }
 
-function deleteNode(nodeId, data, callback){
+const deleteNode = (nodeId, data, callback) => {
   const url = document.getElementById('currentPath').getAttribute("href") + `/nodes/${nodeId}.json`;
   axios.delete(url, { id: nodeId })
             .then((response) => {
@@ -146,13 +146,12 @@ function deleteNode(nodeId, data, callback){
             });
 }
 
-function clearPopUp() {
+const clearPopUp = () =>{
   document.getElementById('saveButton').onclick = null;
-  document.getElementById('cancelButton').onclick = null;
   document.getElementById('network-popUp').style.display = 'none';
 }
 
-function createEdge(data, callback) {
+const createEdge = (data, callback) => {
   const url = document.getElementById('createEdgeLink').getAttribute("href") + '.json';
   axios.post(url, { from: data.from, to: data.to })
             .then((response) => {
@@ -167,7 +166,7 @@ function createEdge(data, callback) {
             });
 }
 
-function createNode(data,callback) {
+const createNode = (data,callback) => {
   const url = document.getElementById('saveButton').getAttribute("href") + '.json';
   let label = document.getElementById('node-label').value
   axios.post(url, { label: label })
@@ -198,12 +197,12 @@ async function getCurrentNetwork() {
   return response
 }
 
-function setNetworkData(data, network){
+const setNetworkData = (data, network) => {
   network.setData (data);
   network.redraw();
 }
 
-function processResponse(response){
+const processResponse = (response) => {
   var data = {}
   if(response.status == 200){
     let nodes = response.data.nodes.map( (node) => { return {id: node.id, color: node.color,  label: node.label }});

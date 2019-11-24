@@ -31,7 +31,7 @@
 
 .column.is-flex.is-full.is-justified-centered
   .buttons.are-small
-    %button.button.is-success.has-regular-margin#add-node
+    %button.button.is-info.has-regular-margin#add-node
       Añadir nodo
     %button.button.is-primary.has-regular-margin#add-edge
       Añadir arista
@@ -44,10 +44,10 @@
 
 #network-popUp.network-popup
   %span#operation node
-  %label{ for: "node-label"}
-  %input.input.field.is-small#node-label{value: "new value"}
+  %label.label{ for: "node-label"}
+  %input.input.field.is-small#node-label{placeholder: "Defina un nombre"}
   .buttons.are-small
-    %input.button.is-success#saveButton{type: "button", value: "Guardar", href: "#{community_campain_nodes_path(@campain)}"}
+    %input.button.is-primary#saveButton{type: "button", value: "Crear", href: "#{community_campain_nodes_path(@campain)}"}
     %input.button.is-danger#cancelButton{type:  "button", value: "Cancelar"}
 %a#createEdgeLink{href: "#{community_edges_path}"}
 %a#currentPath{href: "#{community_campain_path(@campain)}"}
