@@ -6,7 +6,7 @@
     = f.label :coworker_id, "Encargado del nodo", class: "label"
     .select
       = f.select :coworker_id, @node.campain.coworkers.map { |coworker| [coworker.email, coworker.id] }, include_blank: false, prompt: "Selecciona el encargado del nodo", selected: post.responsable&.id
-  .column.is-5-widescreen.is-8-tablet.is-6-mobile
+  .column.is-12
     = f.submit t("helpers.label.post.submit"), class: 'button is-primary'
     - unless post.new_record?
-      = link_to "Eliminar", community_node_post_path(post.node, post), method: :delete, class: "fa fa-trash", remote: true
+      = link_to " Eliminar", community_node_post_path(post.node, post), method: :delete, class: "fa fa-trash has-regular-margin", remote: true, data: { confirm: "¿Seguro que deseas eliminar el post?"}
