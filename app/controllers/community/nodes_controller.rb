@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Community
-  class NodesController < ApplicationController
+  class NodesController < BaseController
     def create
       campain = Campain.find(params[:campain_id])
       respond_to do |format|

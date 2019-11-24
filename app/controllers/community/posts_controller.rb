@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Community
-  class PostsController < ApplicationController
+  class PostsController < BaseController
     before_action :build_node
     before_action :verify_node, only: [:new]
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Community
-  class EdgesController < ApplicationController
+  class EdgesController < BaseController
     def create
       edge = Edge.new(from_id: params[:from], to_id: params[:to])
       respond_to do |format|
