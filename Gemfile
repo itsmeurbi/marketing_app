@@ -16,6 +16,7 @@ gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-debug'
 gem 'jbuilder', '~> 2.7'
+gem 'koala'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 6.0.0'
