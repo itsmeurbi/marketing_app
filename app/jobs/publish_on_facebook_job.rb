@@ -11,4 +11,9 @@ class PublishOnFacebookJob < ApplicationJob
       page.publish_post(post.body)
     end
   end
+
+  after_perform do |job|
+    post = job.arguments.first
+    post.update(published: true)
+  end
 end

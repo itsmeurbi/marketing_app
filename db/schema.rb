@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_220639) do
+ActiveRecord::Schema.define(version: 2019_11_25_042304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 2019_11_24_220639) do
     t.index ["user_id"], name: "index_coworkers_on_user_id"
   end
 
+  create_table "coworkers_in_post", force: :cascade do |t|
+    t.bigint "coworker_id"
+    t.bigint "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coworker_id"], name: "index_coworkers_in_post_on_coworker_id"
+    t.index ["post_id"], name: "index_coworkers_in_post_on_post_id"
+  end
+
   create_table "edges", force: :cascade do |t|
     t.bigint "from_id"
     t.bigint "to_id"
@@ -145,6 +154,7 @@ ActiveRecord::Schema.define(version: 2019_11_24_220639) do
     t.datetime "publish_at"
     t.boolean "auto_publish"
     t.integer "content_status"
+    t.boolean "published"
     t.index ["coworker_id"], name: "index_posts_on_coworker_id"
     t.index ["node_id"], name: "index_posts_on_node_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
