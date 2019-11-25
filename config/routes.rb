@@ -30,6 +30,9 @@ Rails.application.routes.draw do
     resources :nodes, only: %i[index] do
       resources :posts
     end
+    resources :posts, only: %i[] do
+      resources :publications
+    end
     resources :edges, only: %i[create update destroy]
     root to: 'campains#index'
   end

@@ -40,6 +40,11 @@
         = image_tag(post.content)
       - else
         El post aún no tiene contenido adjunto
+    - if post.published
+      El post ha sido publicado
+    -else
+      %p
+        = link_to "Publicar ahora", new_community_post_publication_path(post) if post.body
 
   - unless post.new_record?
     .has-regular-padding-top
