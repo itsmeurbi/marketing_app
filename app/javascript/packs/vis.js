@@ -4,7 +4,11 @@ import axios from "axios"
 document.addEventListener("DOMContentLoaded", function() {
   const csrfToken = document.querySelector("meta[name=csrf-token]").content;
   axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
-  const container = document.getElementById('vis-container');
+  document.getElementById('vis-container') && initializeVisJs();
+})
+
+const initializeVisJs = () => {
+  const container = document.getElementById('vis-container')
   let options = networkOptions();
   let data = {};
   var network = new vis.Network(container, data, options);
@@ -17,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
       getPostform(params.nodes[0])
     }
   });
-})
+}
 
 const getPostform = (nodeId) => {
   let url = document.getElementById('postForm').getAttribute("href") + `/${nodeId}/posts/new.json`;
