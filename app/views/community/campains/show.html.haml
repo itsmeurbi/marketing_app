@@ -30,7 +30,7 @@
         %p=@campain.product
 
 
-  .column.is-12.has-regular-padding-top
+  .column.is-12.has-regular-padding-top{"data-controller": "community-campains-charts"}
     .colums.is-centered.is-flex
       .column
         .columns
@@ -57,7 +57,7 @@
           Editar nodo
         %button.button.is-danger.has-regular-margin#delete-node
           Eliminar selección
-    #vis-container.vis-container
+    #vis-container.vis-container{"data-controller": "visjs"}
 
 #network-popUp.network-popup
   %span#operation node
