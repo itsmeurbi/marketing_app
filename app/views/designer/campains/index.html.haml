@@ -21,4 +21,9 @@
               Termina:
               = l(campain.end_date, format: :short)
 
-
+  = simple_form_for(Message.new) do |f|
+    .filed
+      = f.label :content, "Nuevo mensaje"
+      = f.input :content, class: ""
+    .field
+      = f.submit "Enviar"
