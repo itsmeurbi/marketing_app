@@ -1,11 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
-    google.charts.load('current', {'packages':['timeline', 'corechart'], 'language': 'es'});
-    document.getElementById('campainProgressChart') && google.charts.setOnLoadCallback(drawCharts);
-})
+import { Controller } from "stimulus"
 
-const drawCharts = () => {
-  document.getElementById('campainProgressChart') && drawCampainProgressChart();
-  document.getElementById('postPublicationChart') && drawPostProgressChart();
+export default class extends Controller {
+
+  initialize() {
+    google.charts.load('current', {'packages':['timeline', 'corechart'], 'language': 'es'});
+    google.charts.setOnLoadCallback(this.drawCharts);
+  }
+
+  drawCharts(){
+    document.getElementById('campainProgressChart') && drawCampainProgressChart();
+    document.getElementById('postPublicationChart') && drawPostProgressChart();
+  }
 }
 
 const drawPostProgressChart = () => {
@@ -31,7 +36,7 @@ const drawPostProgressChart = () => {
 }
 
 
-const drawCampainProgressChart = () => {
+const drawCampainProgressChart = () =>{
   let container = document.getElementById('campainProgressChart');
   let chart = new google.visualization.Timeline(container);
   let dataTable = new google.visualization.DataTable();

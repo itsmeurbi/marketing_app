@@ -1,11 +1,15 @@
+import { Controller } from "stimulus"
 import vis from "vis-network"
 import axios from "axios"
 
-document.addEventListener("DOMContentLoaded", function() {
-  const csrfToken = document.querySelector("meta[name=csrf-token]").content;
-  axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
-  document.getElementById('vis-container') && initializeVisJs();
-})
+export default class extends Controller {
+
+  initialize() {
+    const csrfToken = document.querySelector("meta[name=csrf-token]").content;
+    axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
+    document.getElementById('vis-container') && initializeVisJs();
+  }
+}
 
 const initializeVisJs = () => {
   const container = document.getElementById('vis-container')
