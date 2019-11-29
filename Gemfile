@@ -31,6 +31,7 @@ gem 'webpacker', '~> 4.0'
 group :development, :test do
   gem 'annotate'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'pry'
 end
 
@@ -47,6 +48,11 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'aws-sdk-s3'
+  gem 'image_processing', '~> 1.2'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
