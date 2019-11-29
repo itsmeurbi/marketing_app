@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   end
 
   resources :petitions
+  resources :chatrooms
+  resources :messages
 
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'landing_page#index'
