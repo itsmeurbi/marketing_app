@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = [ 'container', 'submitButton', 'messageBox', 'fileLoader' ]
 
   initialize() {
-    this.containerTarget.scrollTop = 10000;
     this.containerTarget.scrollIntoView(false)
     this.messageBoxTarget.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
@@ -21,5 +20,9 @@ export default class extends Controller {
 
   clickFileLoader(){
     this.fileLoaderTarget.click()
+  }
+
+  scrollChat(){
+    this.containerTarget.scrollTop = 10000;
   }
 }

@@ -1,0 +1,32 @@
+
+.chat-container{"data-controller": "chat", "data-target": "chat.container"}
+  .is-aligned-center
+    .chat-header{"href": "#chatContainer", "data-action": "collapse", "aria-label": "show chat"}
+      Chat container
+      .close
+        %a
+          &times;
+    .chat-content.is-collapsible#chatContainer
+      .column.is-12.is-paddingless
+        .message-container#messageContainer{"data-target": "chat.container", "data-author": current_user.email }
+          - @messages.each do |message|
+            .columns
+              .column.is-flex{class: message_author_class(message) }
+                .message
+                  .author
+                    = message.user.email
+                  - if message.image.attached?
+                    = image_tag(message.image)
+                  - else
+                    %p= message.content
+      = simple_form_for(Message.new, remote: true) do |f|
+        .field.has-addons.is-marginless
+          .control.has-full-width
+            = f.input :content, placeholder: "Escribe un mensaje", input_html: { "data-target": "chat.messageBox" }
+          .control
+            .button.is-info{"data-action": "click->chat#clickFileLoader"}
+              +
+        = f.file_field :image, class: "is-hidden", data: { target: "chat.fileLoader", action: "chat#submitForm" }
+        = f.submit "Enviar", class: "button is-success is-hidden", data: { target:  "chat.submitButton" }
+
+
