@@ -18,7 +18,7 @@ module Community
       params.require(:coworker)
             .permit(:role)
             .merge(campain: Campain.find(params[:campain_id]),
-                   user: User.find(params[:coworker][:user]))
+                   user: User.find_by_id(params[:coworker][:user]))
     end
   end
 end
