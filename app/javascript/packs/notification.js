@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
-  var notification = document.getElementsByClassName('notification')
-  if (notification.lentgh > 0){
+document.addEventListener('turbolinks:load', function() {
+  let notifications = document.getElementsByClassName('notification')
+  if (notifications.length > 0){
     setTimeout(function() {
-      notificarion[0].classList.add('is-hidden')
-    }, 5000);
+      notifications[0].classList.add('is-hidden')
+    }, 3000);
   }
 });
 
