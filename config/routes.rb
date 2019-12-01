@@ -5,9 +5,8 @@ Rails.application.routes.draw do
     resources :clients
     resources :contacts
     resources :companies, only: %i[index show]
-    resources :corporations
     resources :campains, except: %i[destroy]
-    resources :users, except: %i[edit]
+    resources :users, only: %i[index show]
     root to: 'campains#index'
   end
 
