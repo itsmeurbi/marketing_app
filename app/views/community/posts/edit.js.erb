@@ -1,2 +1,6 @@
 document.getElementById("postForm").innerHTML = "<%= escape_javascript(render 'community/posts/form.html.haml', post: @post, submit: "Actualizar", action: community_node_post_path(@node, @node.post)).html_safe %>"
+let postContainer = document.getElementById("postForm")
+if(postContainer.classList.contains("is-active")){
+  document.getElementById("petitionsCollapsibleButton").click()
+}
 document.getElementById("petitionsCollapsibleButton").click()

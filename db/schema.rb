@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_042304) do
+ActiveRecord::Schema.define(version: 2019_12_01_165102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 2019_11_25_042304) do
     t.integer "company_id"
     t.string "company_type"
     t.index ["manager_id"], name: "index_campains_on_manager_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clients", force: :cascade do |t|
@@ -102,15 +108,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_042304) do
     t.index ["user_id"], name: "index_coworkers_on_user_id"
   end
 
-  create_table "coworkers_in_post", force: :cascade do |t|
-    t.bigint "coworker_id"
-    t.bigint "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["coworker_id"], name: "index_coworkers_in_post_on_coworker_id"
-    t.index ["post_id"], name: "index_coworkers_in_post_on_post_id"
-  end
-
   create_table "edges", force: :cascade do |t|
     t.bigint "from_id"
     t.bigint "to_id"
@@ -118,6 +115,16 @@ ActiveRecord::Schema.define(version: 2019_11_25_042304) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["from_id"], name: "index_edges_on_from_id"
     t.index ["to_id"], name: "index_edges_on_to_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id"
+    t.bigint "chatroom_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "nodes", force: :cascade do |t|
@@ -153,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_042304) do
     t.bigint "coworker_id"
     t.datetime "publish_at"
     t.boolean "auto_publish"
-    t.integer "content_status"
+    t.integer "content_status", default: 0
     t.boolean "published"
     t.index ["coworker_id"], name: "index_posts_on_coworker_id"
     t.index ["node_id"], name: "index_posts_on_node_id"
