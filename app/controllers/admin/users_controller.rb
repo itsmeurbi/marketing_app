@@ -10,15 +10,19 @@ module Admin
     #   foo.update(params[:foo])
     #   send_foo_updated_email
     # end
+
     def create
-      user = User.invite!(user_params)
-      if user.valid?
-        flash[:notice] = 'El usuario fue registrado correctamente'
-      else
-        flash[:alert] = 'Error registrando al usuario'
+      unless role_mask == 256
+        user = User.invite!(user_params)
+        if user.valid?
+          flash[:notice] = 'El usuario fue registrado correctamente'
+        else
+          flash[:alert] = 'Error registrando al usuario'
+        end
       end
       redirect_to admin_users_path
     end
+
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.
