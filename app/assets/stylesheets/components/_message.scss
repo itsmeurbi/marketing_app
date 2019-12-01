@@ -1,0 +1,57 @@
+.chat-container {
+  bottom: 0;
+  position: fixed;
+  right: 20px;
+  width: 350px;
+
+  .chat-content {
+    box-shadow: 0 0 5px 0 $regular-shadow;
+
+    .message-container {
+      color: $black;
+      height: 400px;
+      justify-content: flex-start;
+      overflow: auto;
+      padding: 5px 10px;
+      text-align: center;
+      width: 100%;
+
+      .message {
+        background-color: $white;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 $regular-shadow;
+        left: 0;
+        max-width: 90%;
+        padding: 5px;
+        text-align: justify;
+
+        .author {
+          font-size: 10px;
+          font-weight: 600;
+          text-align: left;
+        }
+      }
+
+      .is-author {
+        justify-content: flex-end;
+
+        .message {
+          background-color: $aqua;
+        }
+      }
+    }
+
+  }
+
+  .chat-header {
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 5px 0 $regular-shadow;
+    height: 45px;
+    padding: 7px 10px;
+    width: 100%;
+
+    .close {
+      float: right;
+    }
+  }
+}
