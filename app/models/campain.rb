@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 class Campain < ApplicationRecord
-  belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
   has_many :coworkers
   has_many :nodes
   has_many :posts, through: :nodes
   has_many :edges, through: :nodes
   has_one_attached :image
+
   belongs_to :company, polymorphic: true
+  belongs_to :manager, class_name: 'User', foreign_key: 'manager_id'
+
   scope :coworker_campains, lambda { |user|
                               joins(:coworkers).includes(coworkers: :user)
                                                .where(coworkers: { user: user })

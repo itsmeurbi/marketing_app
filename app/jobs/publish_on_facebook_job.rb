@@ -4,7 +4,7 @@ class PublishOnFacebookJob < ApplicationJob
   queue_as :default
 
   def perform(post)
-    page = PageMannager.new
+    page = PageMannager.new(post)
     if post.content.attached?
       page.publish_image(post.content, post.body)
     else

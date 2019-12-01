@@ -22,6 +22,7 @@ class CampainDashboard < Administrate::BaseDashboard
     objective: Field::String,
     campain_type: Field::String,
     product: Field::String,
+    encrypted_page_token: Field::String,
     company: Field::Polymorphic.with_options(classes: [Company, Corporation]),
     manager_id: Field::Number
   }.freeze
@@ -51,6 +52,7 @@ class CampainDashboard < Administrate::BaseDashboard
     updated_at
     start_date
     end_date
+    encrypted_page_token
     image
   ].freeze
 
@@ -66,6 +68,7 @@ class CampainDashboard < Administrate::BaseDashboard
     campain_type
     product
     company
+    encrypted_page_token
     image
   ].freeze
 
