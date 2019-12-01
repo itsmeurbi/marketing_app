@@ -8,6 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: $regular-padding $regular-padding 0;
+  position: relative;
 }
 
 .is-justified-centered {

@@ -6,6 +6,7 @@ module Designer
 
     def index
       @campains = Campain.coworker_campains(current_user)
+      @messages = Message.where(chatroom: 1)
     end
 
     def show

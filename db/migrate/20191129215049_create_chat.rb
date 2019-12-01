@@ -8,7 +8,7 @@ class CreateChat < ActiveRecord::Migration[6.0]
       t.timestamps
     end
     create_table :messages do |t|
-      t.text :content, null: false
+      t.string :content, null: false
       t.belongs_to :user
       t.belongs_to :chatroom
       t.timestamps

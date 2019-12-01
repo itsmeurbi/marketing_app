@@ -8,4 +8,12 @@ module ApplicationHelper
     else 'notification is-danger'
     end
   end
+
+  def message_author_class(message)
+    if current_user == message.user
+      'is-author'
+    else
+      ''
+    end
+  end
 end
