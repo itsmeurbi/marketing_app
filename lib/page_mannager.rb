@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
 class PageMannager
+  USER_TOKEN = Rails.application.credentials.facebook_token
   attr_accessor :user_graph, :page_graph
 
-  def initialize
-    @user_graph = Koala::Facebook::API.new(Rails.application.credentials.facebook_token)
-    page_token = user_graph.get_connections('me', 'accounts').first['access_token']
+  def initialize(post)
+    page_token = if post.node.campain.encrypted_page_token.blank?
+                   @user_graph = Koala::Facebook::API.new(USER_TOKEN)
+                   user_graph.get_connections('me', 'accounts')
+                             .first['access_token']
+                 else
+                   post.node.campain.encrypted_page_token
+                 end
     @page = Koala::Facebook::API.new(page_token)
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_165102) do
+ActiveRecord::Schema.define(version: 2019_12_01_190149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_165102) do
     t.bigint "manager_id"
     t.integer "company_id"
     t.string "company_type"
+    t.string "encrypted_page_token"
     t.index ["manager_id"], name: "index_campains_on_manager_id"
   end
 
