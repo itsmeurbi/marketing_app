@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Node:
+  = @post.node
+%p
+  %b Content:
+  = @post.content
+%p
+  %b Post at:
+  = @post.post_at
+%p
+  %b Published:
+  = @post.published
+%p
+  %b Facebook:
+  = @post.facebook_id
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path

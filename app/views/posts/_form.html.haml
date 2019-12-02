@@ -1,0 +1,25 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :node
+    = f.text_field :node
+  .field
+    = f.label :content
+    = f.text_field :content
+  .field
+    = f.label :post_at
+    = f.datetime_select :post_at
+  .field
+    = f.label :published
+    = f.check_box :published
+  .field
+    = f.label :facebook_id
+    = f.text_field :facebook_id
+  .actions
+    = f.submit 'Save'

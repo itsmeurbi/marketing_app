@@ -1,0 +1,25 @@
+%h1 Listing coworkers
+
+%table
+  %thead
+    %tr
+      %th Role
+      %th User
+      %th Campain
+      %th
+      %th
+      %th
+
+  %tbody
+    - @coworkers.each do |coworker|
+      %tr
+        %td= coworker.role
+        %td= coworker.user
+        %td= coworker.campain
+        %td= link_to 'Show', coworker
+        %td= link_to 'Edit', edit_coworker_path(coworker)
+        %td= link_to 'Destroy', coworker, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Coworker', new_coworker_path

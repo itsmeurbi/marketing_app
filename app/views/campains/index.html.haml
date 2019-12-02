@@ -1,0 +1,29 @@
+%h1 Listing campains
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th User
+      %th Start date
+      %th End date
+      %th Producto
+      %th
+      %th
+      %th
+
+  %tbody
+    - @campains.each do |campain|
+      %tr
+        %td= campain.name
+        %td= campain.user
+        %td= campain.start_date
+        %td= campain.end_date
+        %td= campain.producto
+        %td= link_to 'Show', campain
+        %td= link_to 'Edit', edit_campain_path(campain)
+        %td= link_to 'Destroy', campain, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Campain', new_campain_path

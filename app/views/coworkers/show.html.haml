@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Role:
+  = @coworker.role
+%p
+  %b User:
+  = @coworker.user
+%p
+  %b Campain:
+  = @coworker.campain
+
+= link_to 'Edit', edit_coworker_path(@coworker)
+\|
+= link_to 'Back', coworkers_path

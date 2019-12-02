@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @campain.name
+%p
+  %b User:
+  = @campain.user
+%p
+  %b Start date:
+  = @campain.start_date
+%p
+  %b End date:
+  = @campain.end_date
+%p
+  %b Producto:
+  = @campain.producto
+
+= link_to 'Edit', edit_campain_path(@campain)
+\|
+= link_to 'Back', campains_path

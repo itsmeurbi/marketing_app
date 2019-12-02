@@ -1,0 +1,2 @@
+module CoworkersHelper
+end
