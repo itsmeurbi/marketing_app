@@ -44,7 +44,7 @@
       El post ha sido publicado
     -else
       %p
-        = link_to "Publicar ahora", new_community_post_publication_path(post) if post.body
+        = link_to "Publicar ahora", new_community_post_publication_path(post)
 
   - unless post.new_record?
     .has-regular-padding-top

@@ -5,15 +5,15 @@ class PublishOnFacebookJob < ApplicationJob
 
   def perform(post)
     page = PageMannager.new(post)
-    if post.content.attached?
-      page.publish_image(post.content, post.body)
-    else
-      page.publish_post(post.body)
-    end
+    @response = if post.content.attached?
+                  page.publish_image(post.content, post.body)
+                else
+                  page.publish_post(post.body)
+                end
   end
 
   after_perform do |job|
     post = job.arguments.first
-    post.update(published: true)
+    post.update(published: true, facebook_id: @response['id'])
   end
 end
