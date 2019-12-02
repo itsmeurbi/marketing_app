@@ -15,6 +15,7 @@ gem 'font_awesome5_rails'
 gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-debug'
+gem 'indico'
 gem 'jbuilder', '~> 2.7'
 gem 'koala'
 gem 'pg'

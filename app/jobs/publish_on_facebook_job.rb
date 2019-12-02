@@ -8,12 +8,12 @@ class PublishOnFacebookJob < ApplicationJob
     if post.content.attached?
       page.publish_image(post.content, post.body)
     else
-      page.publish_post(post.body)
+      @response = page.publish_post(post.body)
     end
   end
 
   after_perform do |job|
     post = job.arguments.first
-    post.update(published: true)
+    post.update(published: true, facebook_id: @response['id'])
   end
 end

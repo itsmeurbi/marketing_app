@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_190149) do
+ActiveRecord::Schema.define(version: 2019_12_02_031541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_12_01_190149) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "first", null: false
+    t.integer "second", null: false
   end
 
   create_table "clients", force: :cascade do |t|
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_190149) do
     t.bigint "chatroom_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "recipient_id", null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -163,6 +166,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_190149) do
     t.boolean "auto_publish"
     t.integer "content_status", default: 0
     t.boolean "published"
+    t.string "facebook_id"
     t.index ["coworker_id"], name: "index_posts_on_coworker_id"
     t.index ["node_id"], name: "index_posts_on_node_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
