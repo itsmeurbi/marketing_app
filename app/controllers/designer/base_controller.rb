@@ -2,7 +2,12 @@
 
 module Designer
   class BaseController < ApplicationController
-    before_action :validate_user_role!
+    layout 'designer/application'
+    before_action :validate_user_role!, :load_messages
+
+    def load_messages
+      @messages = Message.where(chatroom: Chatroom.first)
+    end
 
     def validate_user_role!
       return if current_user.is_designer?

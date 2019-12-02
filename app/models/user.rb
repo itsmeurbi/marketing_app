@@ -7,6 +7,8 @@ class User < ApplicationRecord
   belongs_to :company
   has_many :campains, foreign_key: 'manager_id'
   has_many :petitions
+  has_many :messages
+  has_many :chatrooms, through: :messages
 
   devise :database_authenticatable, :recoverable, :invitable, validate_on_invite: true
 
