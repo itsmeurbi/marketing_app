@@ -1,5 +1,6 @@
 import { Controller } from "stimulus"
 
+
 export default class extends Controller {
   static targets = [ 'container', 'submitButton', 'messageBox', 'fileLoader' ]
 
@@ -16,6 +17,7 @@ export default class extends Controller {
   submitForm(){
     this.submitButtonTarget.click()
     this.messageBoxTarget.value = ''
+    this.fileLoaderTarget.value = '';
   }
 
   clickFileLoader(){
