@@ -73,12 +73,3 @@
                       = f.select :content_status, Post.content_statuses.keys.map{ |status| [ t("content_status.#{status}"), status] }, include_blank: false, prompt: "Estado del contenido", disabled: :approved
                 .column.is-12
                   = f.submit "Actualizar post", class: 'button is-primary'
-
-
-.chat-list{ "data-controller": "message"}
-  %a#subscriptionsHelper{"data-action": "click->message#subscribeToChannel", value: ""}
-  - User.all.each do |user|
-    %a{"data-target": "message.userLink", "data-action": "click->message#requestConversation", value: user.id}
-      = user.email
-    %p
-      = user.id
