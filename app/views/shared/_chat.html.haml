@@ -23,6 +23,7 @@
         .field.has-addons.is-marginless
           .control.has-full-width
             = f.input :content, placeholder: "Escribe un mensaje", input_html: { "data-target": "chat.messageBox" }
+            = f.input :recipient_id, input_html: { class: "is-hidden", value: 1 }
           .control
             .button.is-info{"data-action": "click->chat#clickFileLoader"}
               +

@@ -6,7 +6,7 @@ module Designer
     before_action :validate_user_role!, :load_messages
 
     def load_messages
-      @messages = Message.where(chatroom: 1)
+      @messages = Message.where(chatroom: Chatroom.first)
     end
 
     def validate_user_role!

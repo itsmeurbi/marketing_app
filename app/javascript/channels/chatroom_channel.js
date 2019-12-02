@@ -13,10 +13,10 @@ consumer.subscriptions.create("ChatroomChannel", {
 
     let messageItem =
     '<div class="columns">'+
-      `<div class="column is-flex ${author == data.author && "is-author"}">`+
+      `<div class="column is-flex ${author == data.author_email && "is-author"}">`+
         `<div class="message">`+
           '<div class="author">'+
-            `<p>${data.author}</p>`+
+            `<p>${data.author_email}</p>`+
           '</div>'+
           `<p>${data.content}</p>`+
           imageContainer+
