@@ -9,6 +9,7 @@ gem 'administrate', git: 'https://github.com/thoughtbot/administrate.git'
 gem 'administrate-field-active_storage'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bulma-rails'
+gem 'chartkick'
 gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 gem 'font_awesome5_rails'

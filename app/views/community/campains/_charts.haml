@@ -1,0 +1,8 @@
+.column.is-12.has-regular-padding-top{"data-controller": "community-campains-charts"}
+  .colums.is-centered.is-flex
+    .column.has-border.is-6
+      %h3 Reacciones de las publicaciones
+      = column_chart posts_statistics(campain)
+    .column.has-border.is-6
+      %h3 Sentimientos de las publicaciones
+      = column_chart posts_comments_statistics(campain)

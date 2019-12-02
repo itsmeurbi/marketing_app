@@ -23,4 +23,16 @@ class PageMannager
   def publish_post(body)
     @page.put_connections('me', 'feed', message: body)
   end
+
+  def get_post_reactions(facebook_id)
+    @page.get_object(facebook_id, fields: 'reactions.summary(true)')['reactions']['data']
+  rescue StandardError
+    'error'
+  end
+
+  def get_post_comments(facebook_id)
+    @page.get_object(facebook_id, fields: 'comments')['comments']['data']
+  rescue StandardError
+    'error'
+  end
 end
