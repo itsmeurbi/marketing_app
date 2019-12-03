@@ -12,7 +12,7 @@ class CampainDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     manager: Field::BelongsTo.with_options(class_name: 'User',
-                                           scope: -> { User.with_role(:community_manager) }),
+                                           scope: -> { User.with_role(:community_manager, :client) }),
     image: Field::ActiveStorage,
     name: Field::String,
     created_at: ShortDateField,
