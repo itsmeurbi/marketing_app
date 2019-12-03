@@ -8,10 +8,13 @@
 # you're free to overwrite the RESTful controller actions.
 module ConsumerAdmin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_admin
+    before_action :validate_user_role!
 
-    def authenticate_admin
-      # TODO: Add authentication logic here.
+    def validate_user_role!
+      return if current_user.client_admin?
+
+      flash[:alert] = 'Accesos permitido solo para clientes admin'
+      redirect_to root_path
     end
 
     # Override this value to specify the number of elements to display at a time

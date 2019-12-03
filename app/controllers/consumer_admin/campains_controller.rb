@@ -11,6 +11,16 @@ module ConsumerAdmin
     #   send_foo_updated_email
     # end
 
+    def index
+      @campains = Campain.where(manager: current_user)
+      super
+    end
+
+    def show
+      @campain = Campain.find(params[:id])
+      super
+    end
+
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.

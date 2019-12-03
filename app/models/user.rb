@@ -22,7 +22,7 @@ class User < ApplicationRecord
         :finance,
         :client,
         :agency,
-        :consummer_admin
+        :client_admin
 
   scope :admin_manage_users, lambda { |company|
                                where(company: company)
@@ -42,5 +42,9 @@ class User < ApplicationRecord
 
   def self.admin_manage_roles
     %i[rrhh finance client contact]
+  end
+
+  def self.client_admin_role
+    %i[rrhh client]
   end
 end

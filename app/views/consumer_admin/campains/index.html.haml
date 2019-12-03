@@ -1,0 +1,41 @@
+%body
+  - content_for(:title) do
+    = display_resource_name(page.resource_name)
+  %header.main-content__header{role: "banner"}
+    %h1#page-title.main-content__page-title
+      = content_for(:title)
+    - if show_search_bar
+      = render(                                                    |
+          "search",                                                |
+          search_term: search_term,                                |
+          resource_name: display_resource_name(page.resource_name) |
+        )                                                          |
+    %div
+      = link_to(                                                     |
+          t(                                                         |
+            "administrate.actions.new_resource",                     |
+            name: page.resource_name.titleize.downcase               |
+          ),                                                         |
+          [:new, namespace, page.resource_path],                     |
+          class: "button",                                           |
+        ) if valid_action?(:new) && show_action?(:new, new_resource) |
+
+.container.has-regular-padding-top
+  .columns.has-full-width.has-regular-padding-top.is-wrap
+    - @campains.each do |campain|
+      .column.is-4
+        .card
+          .card-header
+            .card-header-title
+              = "Campaña: #{campain.name}"
+          .card-content
+            .content
+              %p= "Manager: #{campain.manager.email}"
+              %p= "Tipo: #{campain.campain_type}"
+              %p= "Objectivo: #{campain.objective}"
+              %p= "Producto: #{campain.product}"
+              %p= "Creada: #{l(campain.end_date, format: :short)}"
+              %p= "Termina: #{l(campain.end_date, format: :short)}"
+          .card-footer
+            .card-footer-item
+              = link_to 'Ver', consumer_admin_campain_path(campain)

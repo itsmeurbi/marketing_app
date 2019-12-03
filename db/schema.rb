@@ -111,6 +111,15 @@ ActiveRecord::Schema.define(version: 2019_12_02_031541) do
     t.index ["user_id"], name: "index_coworkers_on_user_id"
   end
 
+  create_table "coworkers_in_post", force: :cascade do |t|
+    t.bigint "coworker_id"
+    t.bigint "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coworker_id"], name: "index_coworkers_in_post_on_coworker_id"
+    t.index ["post_id"], name: "index_coworkers_in_post_on_post_id"
+  end
+
   create_table "edges", force: :cascade do |t|
     t.bigint "from_id"
     t.bigint "to_id"

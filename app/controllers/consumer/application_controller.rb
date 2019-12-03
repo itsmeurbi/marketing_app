@@ -15,7 +15,7 @@ module Consumer
     def validate_user_role!
       return if current_user.client?
 
-      flash[:alert] = 'Accesos permitido solo para community managers'
+      flash[:alert] = 'Accesos permitido solo para clientes'
       redirect_to root_path
     end
 
