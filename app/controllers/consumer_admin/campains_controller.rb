@@ -12,7 +12,8 @@ module ConsumerAdmin
     # end
 
     def index
-      @campains = Campain.where(manager: current_user)
+      @campains = Campain.joins(:manager)
+                         .where(users: { company_id: current_user.company.id })
       super
     end
 
