@@ -54,3 +54,10 @@ body {
 .has-full-width {
   width: 100%;
 }
+
+.app-container {
+
+  .navigation {
+    flex: 1 0 5rem;
+  }
+}
