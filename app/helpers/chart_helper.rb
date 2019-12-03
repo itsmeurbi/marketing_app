@@ -42,7 +42,7 @@ module ChartHelper
   end
 
   def analize_comments(comments)
-    Indico.api_key = Rails.application.credentials.indico_key
+    Indico.api_key = ENV['INDICO_TOKEN']
     positive_comments = 0
     negative_comments = 0
     comments&.each do |message|

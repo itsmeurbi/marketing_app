@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PageMannager
-  USER_TOKEN = Rails.application.credentials.facebook_token
+  USER_TOKEN = ENV['FACEBOOK_TOKEN']
   attr_accessor :user_graph, :page_graph
 
   def initialize(post)
