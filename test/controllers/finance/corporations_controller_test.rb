@@ -13,7 +13,7 @@ module Finance
     end
 
     test 'it redirect when no finance access to dashboard' do
-      login_as users(:owner)
+      login_as users(:admin)
 
       get finance_corporations_path
 

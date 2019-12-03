@@ -11,7 +11,7 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      redirect_to root_path unless user_signed_in? && current_user.is_owner?
+      redirect_to root_path unless user_signed_in? && current_user.is_admin?
     end
 
     # Override this value to specify the number of elements to display at a time

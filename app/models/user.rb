@@ -13,7 +13,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :invitable, validate_on_invite: true
 
   roles_attribute :roles_mask
-  roles :owner,
+  roles :admin,
         :company,
         :community_manager,
         :content_creator,

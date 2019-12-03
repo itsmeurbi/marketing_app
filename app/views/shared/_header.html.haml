@@ -11,7 +11,7 @@
           .navbar-dropdown.is-right
             - unless controller_path.include?('landing')
               = link_to 'Inicio', root_path, class: "navbar-item"
-            - if current_user.is_owner?
+            - if current_user.is_admin?
               = link_to 'Seccion de admin', admin_campains_path, class: "navbar-item"
             - if current_user.is_rrhh?
               = link_to 'Seccion de RRHH', rrhh_users_path, class: "navbar-item"

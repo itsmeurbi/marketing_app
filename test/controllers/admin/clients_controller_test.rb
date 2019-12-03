@@ -4,15 +4,15 @@ require 'test_helper'
 
 module Admin
   class ClientsControllerTest < ActionDispatch::IntegrationTest
-    test 'it response success when owner access to dashboard' do
-      login_as users(:owner)
+    test 'it response success when admin access to dashboard' do
+      login_as users(:admin)
 
       get admin_clients_path
 
       assert_response :success
     end
 
-    test 'it redirect when owner access to dashboard' do
+    test 'it redirect when admin access to dashboard' do
       login_as users(:rrhh)
 
       get admin_clients_path

@@ -4,15 +4,15 @@ require 'test_helper'
 
 module Admin
   class ContactsControllerTest < ActionDispatch::IntegrationTest
-    test 'owner user can access to dashboard' do
-      login_as users(:owner)
+    test 'admin user can access to dashboard' do
+      login_as users(:admin)
 
       get admin_contacts_path
 
       assert_response :success
     end
 
-    test 'no owner user can not access to dashboard' do
+    test 'no admin user can not access to dashboard' do
       login_as users(:rrhh)
 
       get admin_users_path

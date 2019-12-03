@@ -13,7 +13,7 @@ module Finance
     end
 
     test 'no finance user can not visit dashboard' do
-      login_as users(:owner)
+      login_as users(:admin)
 
       get finance_companies_path
 

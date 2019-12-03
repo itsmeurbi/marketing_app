@@ -11,7 +11,7 @@ umbrella = Company.create_or_find_by!(name: 'Umbrella',
                                       rfc: 'ERDF1332KJDH197ED',
                                       location: 'Av. Tecnológico N.123')
 
-User.create_or_find_by!(email: 'owner@gmail.com',
+User.create_or_find_by!(email: 'admin@gmail.com',
                         password: 'example',
                         roles_mask: 1,
                         company: umbrella)

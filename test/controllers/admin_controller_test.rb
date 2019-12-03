@@ -4,7 +4,7 @@ require 'test_helper'
 
 class AdminControllerTest < ActionDispatch::IntegrationTest
   test 'admin can get ccampains dashboard' do
-    login_as users(:owner)
+    login_as users(:admin)
 
     get admin_campains_path
     assert_response :success
