@@ -218,6 +218,7 @@ es:
     pm: "pm"
   user:
     roles:
+      agency: Agencia
       client: Cliente
       community_manager: Community manager
       company: Compañia

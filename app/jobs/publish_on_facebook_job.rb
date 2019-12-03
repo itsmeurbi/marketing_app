@@ -2,6 +2,7 @@
 
 class PublishOnFacebookJob < ApplicationJob
   queue_as :default
+  @queue = :facebook_post
 
   def perform(post)
     page = PageMannager.new(post)
