@@ -12,12 +12,12 @@ module Admin
     # end
 
     def index
-      @users = User.admin_manage_users(current_user.company)
+      @users = User.admin_manage_users
       super
     end
 
     def create
-      unless role_mask == 256
+      if role_mask != 256
         user = User.invite!(user_params)
         if user.valid?
           flash[:notice] = 'El usuario fue registrado correctamente'
@@ -48,17 +48,21 @@ module Admin
     # end
 
     def role_mask
+      return '' unless params.dig(:user, :roles_mask).nil?
+
       User.mask_for params[:user][:roles_mask].map(&:to_sym)
     end
 
     def scoped_resource
-      User.admin_manage_users(current_user.company)
+      User.admin_manage_users
     end
 
     def user_params
+      company = Company.find_by(id: params[:user][:company]) || current_user.company
+
       { email: params[:user][:email],
         name: params[:user][:name],
-        company: current_user.company,
+        company: company,
         roles_mask: role_mask }
     end
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions

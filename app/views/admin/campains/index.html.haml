@@ -21,9 +21,10 @@
         ) if valid_action?(:new) && show_action?(:new, new_resource) |
 .container.has-regular-padding-top
   - @companies.each do |company|
-    Campañas de:
-    %h3
-      =company.name
+    .has-regular-padding-top.is-wrap
+      Campañas de:
+      %h3
+        =company.name
     .columns.has-full-width.has-regular-padding-top.is-wrap
       - company.campains.each do |campain|
         .column.is-4
@@ -42,3 +43,5 @@
             .card-footer
               .card-footer-item
                 = link_to 'Editar', edit_admin_campain_path(campain)
+              .card-footer-item
+                = link_to 'Ver', admin_campain_path(campain)

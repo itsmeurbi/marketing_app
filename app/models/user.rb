@@ -24,13 +24,13 @@ class User < ApplicationRecord
         :agency,
         :client_admin
 
-  scope :admin_manage_users, lambda { |company|
-                               where(company: company)
-                                 .where('roles_mask = 4
+  scope :admin_manage_users, lambda {
+                               where('roles_mask = 4
                                             OR roles_mask = 32
                                             OR roles_mask = 64
                                             OR roles_mask = 128
-                                            OR roles_mask = 256')
+                                            OR roles_mask = 256
+                                            OR roles_mask = 512')
                              }
 
   scope :with_role, lambda { |role|
@@ -41,10 +41,14 @@ class User < ApplicationRecord
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
   def self.admin_manage_roles
-    %i[rrhh finance client contact]
+    %i[rrhh finance client contact client_admin]
   end
 
   def self.client_admin_role
     %i[rrhh client]
+  end
+
+  def self.external_roles
+    %i[client client_admin]
   end
 end

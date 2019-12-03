@@ -13,6 +13,11 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = render "stylesheet"
+    %script{:src => "https://www.gstatic.com/charts/loader.js", :type => "text/javascript"}
+    :javascript
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      ...
   %body
     = render 'shared/header'
     = render "icons"

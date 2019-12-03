@@ -220,6 +220,7 @@ es:
     roles:
       agency: Agencia
       client: Cliente
+      client_admin: Cliente gestor
       community_manager: Community manager
       company: Compañia
       contact: Contacto
@@ -227,4 +228,4 @@ es:
       designer: Diseñador
       finance: Finanzas
       rrhh: RRHH
-      Admin: Admin
+      admin: Admin
