@@ -11,6 +11,11 @@ module Admin
     #   send_foo_updated_email
     # end
 
+    def index
+      # @campains = Campain.group(:id, :company_id)
+      @companies = Company.all
+      super
+    end
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.
