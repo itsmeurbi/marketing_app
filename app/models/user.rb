@@ -36,6 +36,7 @@ class User < ApplicationRecord
   scope :with_role, lambda { |role|
                       where(roles_mask: User.mask_for(role))
                     }
+  scope :from_company, ->(company) { where(company: company) }
 
   validates :email, presence: true
   validates :email, format: { with: VALID_EMAIL_REGEX }

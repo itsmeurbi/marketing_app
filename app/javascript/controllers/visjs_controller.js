@@ -90,6 +90,9 @@ const networkOptions = () => {
       deleteEdge: function(data, callback){
         requestEdgeDelete(data, callback)
       }
+    },
+    interaction: {
+      zoomView: false
     }
   };
 }

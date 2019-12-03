@@ -19,7 +19,7 @@
               %p= "Tipo: #{campain.campain_type}"
               %p= "Objectivo: #{campain.objective}"
               %p= "Producto: #{campain.product}"
-              %p= "Creada: #{l(campain.end_date, format: :short)}"
+              %p= "Creada: #{l(campain.created_at, format: :short)}"
               %p= "Termina: #{l(campain.end_date, format: :short)}"
           .card-footer
             .card-footer-item

@@ -16,20 +16,18 @@
 
 .container.has-regular-padding-top
   .columns.has-full-width.has-regular-padding-top.is-wrap
-    - @campains.each do |campain|
+    - @companies.each do |company|
       .column.is-4
         .card
           .card-header
             .card-header-title
-              = "Campaña: #{campain.name}"
+              = "Campaña: #{company.name}"
           .card-content
             .content
-              %p= "Manager: #{campain.manager.email}"
-              %p= "Tipo: #{campain.campain_type}"
-              %p= "Objectivo: #{campain.objective}"
-              %p= "Producto: #{campain.product}"
-              %p= "Creada: #{l(campain.created_at, format: :short)}"
-              %p= "Termina: #{l(campain.end_date, format: :short)}"
+              %p= "Representante legal: #{company.legal_representant_name}"
+              %p= "Correo: #{company.legal_representant_email}"
+              %p= "Razón social: #{company.bussines_name}"
+              %p= "Registrada: #{l(company.created_at, format: :short)}"
           .card-footer
             .card-footer-item
-              = link_to 'Ver', consumer_admin_campain_path(campain)
+              = link_to 'Ver', admin_company_path(company)
