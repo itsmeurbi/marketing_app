@@ -28,7 +28,7 @@
     .column.is-12
       = f.submit submit, class: 'button is-primary'
       - unless post.new_record?
-        = link_to " Eliminar", community_node_post_path(post.node, post), method: :delete, class: "fa fa-trash has-regular-margin", remote: true, data: { confirm: "¿Seguro que deseas eliminar el post?"}
+        = link_to " Eliminar", community_node_post_path(post.node, post), method: :delete, class: "has-regular-margin", remote: true, data: { confirm: "¿Seguro que deseas eliminar el post?"}
 
   - unless post.new_record?
     %h3.is-size-4
