@@ -20,7 +20,8 @@ class User < ApplicationRecord
         :designer,
         :rrhh,
         :finance,
-        :client
+        :client,
+        :agency
 
   scope :admin_manage_users, lambda { |company|
                                where(company: company)
