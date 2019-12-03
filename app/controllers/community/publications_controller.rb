@@ -5,7 +5,7 @@ module Community
     def new
       post = Post.find(params[:post_id])
       if post.auto_publish
-        PublishOnFacebookJob.set(wait_until: post.publish_at).perform_later(post)
+        Resque.enqueue_at(post.publish_at, PublishOnFacebookJob, post)
       else
         PublishOnFacebookJob.perform_later(post)
       end
