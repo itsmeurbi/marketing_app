@@ -15,9 +15,6 @@ module Community
     def create
       @post = @node.build_post(post_params)
       @post.save
-      if @post.auto_publish
-        Resque.enqueue_at(@post.publish_at, PublishOnFacebookJob, post)
-      end
       respond_to do |format|
         format.js { render 'community/posts/create.js' }
       end
