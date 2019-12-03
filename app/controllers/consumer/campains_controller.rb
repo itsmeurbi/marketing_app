@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Admin
-  class CampainsController < Admin::ApplicationController
+module Consumer
+  class CampainsController < Consumer::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
@@ -12,8 +12,12 @@ module Admin
     # end
 
     def index
-      # @campains = Campain.group(:id, :company_id)
-      @companies = Company.all
+      @campains = Campain.where(manager: current_user)
+      super
+    end
+
+    def show
+      @campain = Campain.find(params[:id])
       super
     end
     # Override this method to specify custom lookup behavior.
@@ -27,14 +31,6 @@ module Admin
     # Override this if you have certain roles that require a subset
     # this will be used to set the records shown on the `index` action.
     #
-    # def scoped_resource
-    #  if current_user.super_admin?
-    #    resource_class
-    #  else
-    #    resource_class.with_less_stuff
-    #  end
-    # end
-
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
   end

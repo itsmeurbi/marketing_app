@@ -213,6 +213,7 @@ const setNetworkData = (data, network) => {
 const processResponse = (response) => {
   var data = {}
   if(response.status == 200){
+    console.log(response.data)
     let nodes = response.data.nodes.map( (node) => { return {id: node.id, color: node.color,  label: node.label }});
     let edges = response.data.edges.map( (edge) => { return {id: edge.id, from: edge.from_id, to: edge.to_id }});
     data  = {

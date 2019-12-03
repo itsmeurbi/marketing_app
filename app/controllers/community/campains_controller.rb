@@ -25,7 +25,7 @@ module Community
     end
 
     def build_json
-      @campain = current_user.campains.find(params[:id])
+      @campain = Campain.find(params[:id])
       render json: { nodes: @campain.nodes, edges: @campain.edges }
     end
   end

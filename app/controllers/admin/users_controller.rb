@@ -11,6 +11,11 @@ module Admin
     #   send_foo_updated_email
     # end
 
+    def index
+      @users = User.admin_manage_users(current_user.company)
+      super
+    end
+
     def create
       unless role_mask == 256
         user = User.invite!(user_params)

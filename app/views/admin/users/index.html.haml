@@ -1,0 +1,36 @@
+%body
+  - content_for(:title) do
+    = display_resource_name(page.resource_name)
+  %header.main-content__header{role: "banner"}
+    %h1#page-title.main-content__page-title
+      = content_for(:title)
+    - if show_search_bar
+      = render(                                                    |
+          "search",                                                |
+          search_term: search_term,                                |
+          resource_name: display_resource_name(page.resource_name) |
+        )                                                          |
+    %div
+      = link_to(                                                     |
+          t(                                                         |
+            "administrate.actions.new_resource",                     |
+            name: page.resource_name.titleize.downcase               |
+          ),                                                         |
+          [:new, namespace, page.resource_path],                     |
+          class: "button",                                           |
+        ) if valid_action?(:new) && show_action?(:new, new_resource) |
+.container
+  .columns.has-full-width.has-regular-padding-top.is-wrap
+    - @users.each do |user|
+      .column.is-4
+        .card
+          .card-header
+            .card-header-title
+              = "Correo: #{user.email}"
+          .card-content
+            .content
+              %p= "Registrado: #{user.created_at}"
+              %p= "Modificado: #{user.created_at}"
+              %p= "Roles: #{user.roles.map{|role|  t("user.roles.#{role}") }.join(", ")}"
+
+

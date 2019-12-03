@@ -12,17 +12,19 @@
             - unless controller_path.include?('landing')
               = link_to 'Inicio', root_path, class: "navbar-item"
             - if current_user.is_owner?
-              = link_to 'Admin dashboard', admin_campains_path, class: "navbar-item"
+              = link_to 'Seccion de admin', admin_campains_path, class: "navbar-item"
             - if current_user.is_rrhh?
-              = link_to 'RRRHH dashboard', rrhh_users_path, class: "navbar-item"
+              = link_to 'Seccion de RRHH', rrhh_users_path, class: "navbar-item"
             - if current_user.is_finance?
-              = link_to 'Finance dashboar', finance_companies_path, class: "navbar-item"
+              = link_to 'Seccion de finanzas', finance_companies_path, class: "navbar-item"
             - if current_user.is_community_manager?
-              = link_to 'Community dashboard', community_campains_path, class: "navbar-item"
+              = link_to 'Seccion de community mannager', community_campains_path, class: "navbar-item"
             - if current_user.is_content_creator?
-              = link_to 'Ir al dashboard', content_creator_campains_path, class: "navbar-item"
+              = link_to 'Seccion de creador de contenido', content_creator_campains_path, class: "navbar-item"
             - if current_user.is_designer?
-              = link_to 'Ir al dashboard', designer_campains_path, class: "navbar-item"
+              = link_to 'Seccion de diseñador', designer_campains_path, class: "navbar-item"
+            - if current_user.client?
+              = link_to 'Seccion del cliente', consumer_root_path, class: "navbar-item"
             %hr.navbar-divider
             = link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: "navbar-item"
 
