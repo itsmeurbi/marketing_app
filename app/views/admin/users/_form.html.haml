@@ -1,9 +1,48 @@
-= simple_form_for(page.resource, url: admin_users_path, method: :post) do |f|
-  = f.label :name, t("helpers.label.user.name")
-  = f.input :name, wrapper_html: { class: 'field-unit' }, placeholder: 'Nombre de la persona'
-  = f.label :email, t("helpers.label.user.email")
-  = f.input :email, wrapper_html: { class: 'field-unit' }, placeholder: 'Correo electrónico'
-  = f.label :roles_mask, t("helpers.label.user.roles_mask")
-  = f.input :roles_mask, collection: User.admin_manage_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, input_html: { class: 'is-multiple is-marginless', multiple: true}, wrapper_html: { class: "select is-multiple" }
-  .column
-    = f.button :submit, 'Registrar'
+.card
+  .card-header
+    .card-header-icon.is-hidden-fullscreen{ "href": "#internalUser", "data-action": "collapse", "aria-label": "more options" }
+      .card-header-title
+        Usuario interno
+      %span.icon
+        %i.fa.fa-angle-down{ "aria-hidden": "true" }
+  #internalUser.is-collapsible.is-active.card-body.has-regular-padding-top
+    .columns.is-centered
+      .column.is-11
+        = simple_form_for(page.resource, url: admin_users_path, method: :post) do |f|
+          = f.label :name, t("helpers.label.user.name")
+          = f.input :name, wrapper_html: { class: 'field-unit' }, placeholder: 'Nombre de la persona'
+          = f.label :email, t("helpers.label.user.email")
+          = f.input :email, wrapper_html: { class: 'field-unit' }, placeholder: 'Correo electrónico'
+          = f.label :roles_mask, "Rol"
+          = f.input :roles_mask, collection: User.admin_manage_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, input_html: { class: 'is-marginless'}, wrapper_html: { class: "select" }, prompt: "Selecciona el rol del usuario"
+          .column
+            = f.button :submit, 'Registrar'
+
+.has-regular-padding-top
+  .card
+    .card-header
+      .card-header-icon.is-hidden-fullscreen{ "href": "#externalUser", "data-action": "collapse", "aria-label": "more options" }
+        .card-header-title
+          Usuario externo
+        %span.icon
+          %i.fa.fa-angle-down{ "aria-hidden": "true" }
+    #externalUser.is-collapsible.card-body.has-regular-padding-top
+      - if Company.rest_of_companies(current_user.company).any?
+        .columns.is-centered
+          .column.is-11
+            = simple_form_for(page.resource, url: admin_users_path, method: :post) do |f|
+              = f.label :name, t("helpers.label.user.name")
+              = f.input :name, wrapper_html: { class: 'field-unit' }, placeholder: 'Nombre de la persona'
+              = f.label :email, t("helpers.label.user.email")
+              = f.input :email, wrapper_html: { class: 'field-unit' }, placeholder: 'Correo electrónico'
+              = f.label :roles_mask, "Rol"
+              = f.input :roles_mask, collection: User.external_roles.map{ |role| [t("user.roles.#{role.to_s}"), role.to_s] }, input_html: { class: 'is-marginless'}, wrapper_html: { class: "select" }, prompt: "Selecciona el rol del usuario"
+              = f.label :company, t("helpers.label.user.name")
+              = f.input :company, collection: Company.rest_of_companies(current_user.company).map{ |company| [company.name, company.id] }, input_html: { class: 'is-marginless'}, wrapper_html: { class: "select" }, prompt: "Selecciona el rol del usuario"
+
+              .column
+                = f.button :submit, 'Registrar'
+      - else
+        .column
+          %p
+            Para dar de alta a usuarios externos, como clientes regulares o gestores, es necesario que registres la empresa de estos cloentes. Puedes pedirle al usuario de finanzas que relice esto último

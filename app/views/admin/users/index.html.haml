@@ -29,8 +29,28 @@
               = "Correo: #{user.email}"
           .card-content
             .content
-              %p= "Registrado: #{user.created_at}"
-              %p= "Modificado: #{user.created_at}"
+              %p= "Registrado: #{l(user.created_at, format: :short)}"
+              %p= "Modificado: #{l(user.updated_at, format: :short)}"
               %p= "Roles: #{user.roles.map{|role|  t("user.roles.#{role}") }.join(", ")}"
+          .card-footer
+            .card-footer-item
+              = link_to 'Ver', admin_user_path(user)
 
-
+  .columns.has-full-width.has-regular-padding-top.is-wrap
+    .column.is-12
+      %h2
+        Usuarios externos
+    - User.where.not(company: current_user.company).each do |user|
+      .column.is-4
+        .card
+          .card-header
+            .card-header-title
+              = "Correo: #{user.email}"
+          .card-content
+            .content
+              %p= "Registrado: #{l(user.created_at, format: :short)}"
+              %p= "Modificado: #{l(user.updated_at, format: :short)}"
+              %p= "Roles: #{user.roles.map{|role|  t("user.roles.#{role}") }.join(", ")}"
+          .card-footer
+            .card-footer-item
+              = link_to 'Ver', admin_user_path(user)

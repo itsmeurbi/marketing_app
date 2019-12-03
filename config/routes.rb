@@ -3,16 +3,14 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :clients
-    resources :contacts
     resources :companies, only: %i[index show]
     resources :campains, except: %i[destroy]
-    resources :users, only: %i[index show]
+    resources :users, except: %i[destroy]
     root to: 'campains#index'
   end
 
   namespace :consumer_admin do
     resources :clients
-    resources :contacts
     resources :campains, except: %i[destroy]
     resources :users, except: %i[destroy]
     root to: 'campains#index'
@@ -20,7 +18,6 @@ Rails.application.routes.draw do
 
   namespace :agency do
     resources :clients, only: %i[index show]
-    resources :contacts, only: %i[index show]
     resources :companies, only: %i[index show]
     resources :campains, only: %i[index show]
     resources :users, only: %i[index show]
