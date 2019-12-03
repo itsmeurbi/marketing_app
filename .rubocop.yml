@@ -1,6 +1,9 @@
 Metrics/AbcSize:
   Max: 18
 
+Style/GlobalVars:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/*'
