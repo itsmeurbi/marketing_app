@@ -1,0 +1,88 @@
+%h1
+  = @campain.name
+
+.columns.has-regular-margin.is-flex.is-wrap.has-full-width
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Objetivo:
+    %p=@campain.objective
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Fecha de inicio:
+    %p#startDate=@campain.start_date
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Fecha de termino:
+    %p#endDate=@campain.end_date
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Tipo de campaña:
+    %p=@campain.campain_type
+
+  .column.is-one-quarter.is-half-mobile
+    .has-text-weight-semibold
+      Producto:
+    %p=@campain.product
+
+%div#timeline
+
+
+.column.is-12.is-12-mobile.has-regular-padding-top
+  %p.is-size-5.has-text-weight-semibold
+    Peticiones pendientes
+
+    - @petitions.each do |petition|
+
+      .card.has-regular-margin
+        .card-header
+          .card-header-title
+            Datos del post
+            %a#petitionsCollapsibleButton.card-header-icon.is-hidden-fullscreen{ "href": "#postForm", "data-action": "collapse", "aria-label": "more options" }
+              %span.icon
+                %i.fa.fa-angle-down{ "aria-hidden": "true" }
+        #postForm.is-collapsible{href: "#{community_nodes_path}" }
+          .columns.has-regular-margin
+            .column
+              %p.is-size-6.has-text-weight-semibold
+                Mensaje de la petición
+              %p=petition.message
+            .column
+              %p.is-size-6.has-text-weight-semibold
+                Estado
+              %p=t("statuses.#{petition.status}")
+            .column.is-3
+              %p.is-size-6.has-text-weight-semibold
+                Cambiar estado
+              %p
+                - if petition.status == "active" || petition.status == "approved"
+                  = link_to 'Pendiente', petition_path(petition, status: :pending), method: :patch
+                - else
+                  = link_to 'Aprovada', petition_path(petition, status: :approved), method: :patch
+          .columns.is-centered.is-flex
+            .column.is-11.is-11-mobile
+              %p.is-size-5.has-text-weight-semibold
+                Datos de la publicación
+              = simple_form_for(petition.post, url: content_creator_post_path(petition.post)) do |f|
+                .field.has-regular-padding-top
+                  = f.label :body, "Post a publicar", class: "label"
+                  .control
+                    = f.input :body, placeholder: "Agregar contenido a la publicación"
+                - if petition.post.content.attached?
+                  %p.is-size-5.has-text-weight-semibold
+                    Imagen a publicar
+                  = image_tag(petition.post.content, class: "image is-128x128")
+                .file
+                  %label.file-label
+                    = f.input :content, placeholder: "Agregar contenido a la publicación", input_html: {class: "file-input"}
+                    %span.file-cta
+                      %span.file-icon
+                        %i.fa.fa-upload
+                      %span.file-label
+                        Cargar archivo…
+
+
+                .column.is-12
+                  = f.submit "Actualizar post", class: 'button is-primary'
