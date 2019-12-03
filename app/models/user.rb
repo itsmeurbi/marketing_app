@@ -33,8 +33,10 @@ class User < ApplicationRecord
                                             OR roles_mask = 512')
                              }
 
-  scope :with_role, lambda { |role|
-                      where(roles_mask: User.mask_for(role))
+  scope :with_role, lambda { |role1, role2|
+                      where('roles_mask = ? OR roles_mask = ?',
+                            User.mask_for(role1),
+                            User.mask_for(role2))
                     }
   scope :from_company, ->(company) { where(company: company) }
 
