@@ -6,16 +6,14 @@
 #
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
-require_relative '../../helpers/chart_helper'
-
-module Consumer
+module ConsumerAdmin
   class ApplicationController < Administrate::ApplicationController
     before_action :validate_user_role!
 
     def validate_user_role!
-      return if current_user.client?
+      return if current_user.client_admin?
 
-      flash[:alert] = 'Accesos permitido solo para clientes'
+      flash[:alert] = 'Accesos permitido solo para clientes admin'
       redirect_to root_path
     end
 

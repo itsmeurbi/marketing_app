@@ -19,6 +19,14 @@ Rails.application.routes.draw do
     root to: 'clients#index'
   end
 
+  namespace :consumer_admin do
+    resources :clients
+    resources :contacts
+    resources :campains, except: %i[destroy]
+    resources :users, except: %i[destroy]
+    root to: 'campains#index'
+  end
+
   namespace :consumer do
     resources :campains, only: %i[index show]
     root to: 'campains#index'
