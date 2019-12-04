@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-require 'resque/server'
-
-if Rails.env.development?
-  Resque.redis = Redis.new(:host => 'localhost', :port => '6379')
-else
-  uri = URI.parse(ENV['REDISTOGO_URL'])
-  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-
-  Resque.redis = REDIS
+if ENV["REDISCLOUD_URL"]
+  $redis = Redis.new(:url => ENV["REDISCLOUD_URL"])
 end
