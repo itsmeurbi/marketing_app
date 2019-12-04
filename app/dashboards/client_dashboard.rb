@@ -10,7 +10,7 @@ class ClientDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user: Field::BelongsTo.with_options(scope: -> { User.with_role(:client) }),
+    user: Field::BelongsTo.with_options(scope: -> { User.with_role(:client, :client) }),
     corporation: Field::BelongsTo,
     id: Field::Number,
     created_at: ShortDateField,
