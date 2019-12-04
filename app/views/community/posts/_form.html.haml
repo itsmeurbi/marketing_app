@@ -111,8 +111,8 @@
   .column.is-12.has-regular-padding-top{"data-controller": "community-campains-charts"}
     .colums.is-centered.is-flex
       .column.has-border.is-6
-        %h3 Reacciones de la publicación
+        %h3 Sentimientos de las publicación
         = column_chart post_statistics(post), id: "post-reactions-chart", download: true
       .column.has-border.is-6
-        %h3 Sentimientos de las publicación
+        %h3 Reacciones de la publicación
         = column_chart post_comments_statistics(post), download: true

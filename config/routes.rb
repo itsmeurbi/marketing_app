@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :companies, only: %i[index show]
     resources :campains, except: %i[destroy]
     resources :users, except: %i[destroy]
+    resources :logs, inly: %i[index]
     root to: 'campains#index'
   end
 

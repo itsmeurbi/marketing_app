@@ -8,7 +8,10 @@
     %p
       Contenido:
       %br
-      = @post.content
+      = @post.body
+  - if @post.content.attached?
+    %br
+      = image_tag @post.content
     %p
       Hora de publicación
     %br
