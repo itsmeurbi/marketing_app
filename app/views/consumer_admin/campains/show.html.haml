@@ -35,6 +35,7 @@
         .column
           .columns
             .column.has-border
+              Publicaciones
               %div#postPublicationChart{"data-total-posts": "#{@campain.posts.count}",
                                         "data-published-posts": "#{@campain.published_posts_number}",
                                         "data-post-with-media": "#{@campain.number_of_post_with_media}",
@@ -42,6 +43,7 @@
         .column
           .columns
             .column.has-border
+              Progreso de la campaña
               %div#campainProgressChart
 
   = render "community/campains/charts", campain: @campain

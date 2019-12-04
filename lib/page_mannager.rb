@@ -17,7 +17,7 @@ class PageMannager
 
   def publish_image(file, content)
     image = if Rails.env.production?
-              file.content.blob.service_url
+              file.blob.service_url
             else
               ActiveStorage::Blob.service.path_for(file.key)
             end

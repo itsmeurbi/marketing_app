@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   resources :petitions
   resources :chatrooms
   resources :messages
+  resources :post_sentiments, only: %i[index show]
+  resources :post_comments_staticstics, only: %i[index show]
 
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'landing_page#index'
