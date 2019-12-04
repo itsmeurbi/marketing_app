@@ -4,7 +4,7 @@ require 'resque-scheduler'
 require 'resque/scheduler/server'
 
 Rails.application.routes.draw do
-  mount Resque::Server.new, at: '/resque'
+  mount ResqueWeb::Engine => "/resque_web"
 
   namespace :admin do
     resources :clients
