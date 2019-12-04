@@ -10,7 +10,7 @@ class ContactDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user: Field::BelongsTo.with_options(scope: -> { User.with_role(:contact) }),
+    user: Field::BelongsTo.with_options(scope: -> { User.with_role(:contact, :contact) }),
     corporation: Field::BelongsTo,
     id: Field::Number,
     created_at: Field::DateTime,

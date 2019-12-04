@@ -16,7 +16,7 @@ module MarketingApp
     config.i18n.default_locale = :es
     config.eager_load_paths << Rails.root.join('lib')
     config.time_zone = 'Mexico City'
-    config.active_job.queue_adapter = :resque
+    config.active_record.default_timezone = :utc
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

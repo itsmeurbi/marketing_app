@@ -16,8 +16,12 @@ class PageMannager
   end
 
   def publish_image(file, content)
-    file_path = ActiveStorage::Blob.service.path_for(file.key)
-    @page.put_picture(file_path, file.content_type, { caption: content }, 'me')
+    image = if Rails.env.production?
+              file.blob.service_url
+            else
+              ActiveStorage::Blob.service.path_for(file.key)
+            end
+    @page.put_picture(image, file.content_type, { caption: content }, 'me')
   end
 
   def publish_post(body)
