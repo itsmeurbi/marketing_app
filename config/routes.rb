@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
+require 'resque-scheduler'
+require 'resque/scheduler/server'
+
 Rails.application.routes.draw do
+  mount Resque::Server.new, at: '/resque'
+
   namespace :admin do
     resources :clients
     resources :companies, only: %i[index show]
