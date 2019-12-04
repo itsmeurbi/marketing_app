@@ -31,6 +31,7 @@
         - unless post.new_record?
           = link_to " Eliminar", community_node_post_path(post.node, post), method: :delete, class: "has-regular-margin", remote: true, data: { confirm: "¿Seguro que deseas eliminar el post?"}
 
+
   - unless post.new_record?
     %h3.is-size-4
       Contenido del post
@@ -104,3 +105,14 @@
           = f.input :message, class: "input", placeholder: "Describa la peticion a generar"
           .column.is-12
             = f.submit t("helpers.label.post.submit"), class: 'button is-primary'
+
+
+- unless post.new_record?
+  .column.is-12.has-regular-padding-top{"data-controller": "community-campains-charts"}
+    .colums.is-centered.is-flex
+      .column.has-border.is-6
+        %h3 Reacciones de la publicación
+        = column_chart post_statistics(post), download: true
+      .column.has-border.is-6
+        %h3 Sentimientos de las publicación
+        = column_chart post_comments_statistics(post), download: true
