@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_031541) do
+ActiveRecord::Schema.define(version: 2019_12_04_150828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,15 +111,6 @@ ActiveRecord::Schema.define(version: 2019_12_02_031541) do
     t.index ["user_id"], name: "index_coworkers_on_user_id"
   end
 
-  create_table "coworkers_in_post", force: :cascade do |t|
-    t.bigint "coworker_id"
-    t.bigint "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["coworker_id"], name: "index_coworkers_in_post_on_coworker_id"
-    t.index ["post_id"], name: "index_coworkers_in_post_on_post_id"
-  end
-
   create_table "edges", force: :cascade do |t|
     t.bigint "from_id"
     t.bigint "to_id"
@@ -127,6 +118,15 @@ ActiveRecord::Schema.define(version: 2019_12_02_031541) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["from_id"], name: "index_edges_on_from_id"
     t.index ["to_id"], name: "index_edges_on_to_id"
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.string "user_email"
+    t.string "action"
+    t.integer "resource"
+    t.integer "controller"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "messages", force: :cascade do |t|

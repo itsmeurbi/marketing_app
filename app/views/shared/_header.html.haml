@@ -13,6 +13,7 @@
               = link_to 'Inicio', root_path, class: "navbar-item"
             - if current_user.is_admin?
               = link_to 'Seccion de admin', admin_campains_path, class: "navbar-item"
+              = link_to 'Logs', admin_logs_path, class: "navbar-item"
             - if current_user.is_rrhh?
               = link_to 'Seccion de RRHH', rrhh_users_path, class: "navbar-item"
             - if current_user.is_finance?

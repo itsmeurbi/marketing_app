@@ -1,0 +1,20 @@
+.container
+  %h2
+    Logs
+  %table.table.table-bordered.table-curved{:style => "\r\n    margin-top: 15px;"}
+    %thead
+      %tr
+        %td='Acción'
+        %td='Usuario'
+        %td='Controlador'
+        %td='Elemento'
+        %td.default-td='Realizado'
+
+    %tbody
+      - @logs.each do |log|
+        %tr
+          %td=log.action
+          %td=log.user_email
+          %td=log.controller
+          %td=log.resource
+          %td.default-td=l(log.created_at, format: :long)

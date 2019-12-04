@@ -4,13 +4,14 @@ require 'resque-scheduler'
 require 'resque/scheduler/server'
 
 Rails.application.routes.draw do
-  mount ResqueWeb::Engine => "/resque_web"
+  mount Resque::Server.new, at: '/resque'
 
   namespace :admin do
     resources :clients
     resources :companies, only: %i[index show]
     resources :campains, except: %i[destroy]
     resources :users, except: %i[destroy]
+    resources :logs, inly: %i[index]
     root to: 'campains#index'
   end
 
