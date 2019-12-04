@@ -112,7 +112,7 @@
     .colums.is-centered.is-flex
       .column.has-border.is-6
         %h3 Reacciones de la publicación
-        = column_chart post_statistics(post), download: true
+        = column_chart post_statistics(post), id: "post-reactions-chart", download: true
       .column.has-border.is-6
         %h3 Sentimientos de las publicación
         = column_chart post_comments_statistics(post), download: true

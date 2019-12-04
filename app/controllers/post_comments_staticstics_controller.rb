@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostCommentsStaticsticsController < ApplicationController
   def index
     campain = Campain.find(params[:campain_id])

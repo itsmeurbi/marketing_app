@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostSentimentsController < ApplicationController
   def show
     post = Post.find(params[:id])

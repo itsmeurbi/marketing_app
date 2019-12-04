@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class Chart
   def self.posts_statistics(campain)
