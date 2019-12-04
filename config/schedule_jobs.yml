@@ -1,0 +1,5 @@
+facebook_job:
+  every: "10m"
+  class: "LookFacebookpostJob"
+  queue: simple
+  description: "Example job"
