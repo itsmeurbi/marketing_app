@@ -15,7 +15,7 @@ task find_posts: :environment do
                  page.publish_post(post.body)
                end
     post.update(published: true, facebook_id: response['id'])
-    FacebookNotifierMailer.with(id: post.id).facebook_post.deliver_later
+    FacebookNotifierMailer.with(id: post.id).facebook_post.deliver_now
   end
   puts 'LOOKING FOR SOME FACEBOOK POSTS'
 end
