@@ -12,7 +12,8 @@ module Consumer
     # end
 
     def index
-      @campains = Campain.where(manager: current_user)
+      client = Client.find_by(user: current_user)
+      @campains = Campain.where(company: client.corporation)
       super
     end
 
