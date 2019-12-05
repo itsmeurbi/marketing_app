@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   end
 
   namespace :community do
+    resources :dashboards, only: %i[show]
     resources :campains, only: %i[index show] do
       resources :nodes, only: %i[create destroy update]
       resources :coworkers
