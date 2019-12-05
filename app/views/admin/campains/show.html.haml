@@ -9,12 +9,12 @@
             Objetivo:
           %p=@campain.objective
 
-        .column.is-one-quarter.is-half-mobile
+        .column.is-one-quarter.is-half-mobile.is-hidden
           .has-text-weight-semibold
             Fecha de inicio:
           %p#startDate=@campain.start_date
 
-        .column.is-one-quarter.is-half-mobile
+        .column.is-one-quarter.is-half-mobile.is-hidden
           .has-text-weight-semibold
             Fecha de termino:
           %p#endDate=@campain.end_date
@@ -28,7 +28,6 @@
           .has-text-weight-semibold
             Producto:
           %p=@campain.product
-
 
     .column.is-12.has-regular-padding-top{"data-controller": "community-campains-charts"}
       .colums.is-centered.is-flex
@@ -47,41 +46,3 @@
               %div#campainProgressChart
 
   = render "community/campains/charts", campain: @campain
-
-  .column.is-12.has-regular-padding-top
-    .column.is-12.has-border
-      .columns.is-flex.is-wrap.has-full-width
-        .is-hidden
-          .column.is-one-quarter.is-half-mobile
-          .buttons.are-small
-            %button.button.is-info.has-regular-margin#add-node
-              Añadir nodo
-            %button.button.is-primary.has-regular-margin#add-edge
-              Añadir arista
-            %button.button.is-warning.has-regular-margin#edit-node
-              Editar nodo
-            %button.button.is-danger.has-regular-margin#delete-node
-              Eliminar selección
-      #vis-container.vis-container{"data-controller": "visjs"}
-
-  .is-hidden
-    #network-popUp.network-popup
-      %span#operation node
-      %label.label{ for: "node-label"}
-      %input.input.field.is-small#node-label{placeholder: "Defina un nombre"}
-      .buttons.are-small
-        %input.button.is-primary#saveButton{type: "button", value: "Crear", href: "#{community_campain_nodes_path(@campain)}"}
-        %input.button.is-danger#cancelButton{type:  "button", value: "Cancelar"}
-    %a#createEdgeLink{href: "#{community_edges_path}"}
-    %a#currentPath{href: "#{community_campain_path(@campain)}"}
-
-
-  .column.is-12
-    .card.has-regular-margin
-      .card-header
-        .card-header-title
-          Datos del post
-          %a#petitionsCollapsibleButton.card-header-icon.is-hidden-fullscreen{ "href": "#postForm", "data-action": "collapse", "aria-label": "more options" }
-            %span.icon
-              %i.fa.fa-angle-down{ "aria-hidden": "true" }
-      #postForm.is-collapsible{href: "#{community_nodes_path}" }

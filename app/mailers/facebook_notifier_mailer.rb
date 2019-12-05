@@ -3,6 +3,7 @@
 class FacebookNotifierMailer < ApplicationMailer
   def facebook_post
     @post = Post.find(params[:id])
-    mail(to: ENV['SUPPORT_MAIL'], subject: 'Se ha publicado nuevo contenido a la campaña')
+    user_email = @post.node.campain.manager.email
+    mail(to: user_email, subject: 'Se ha publicado nuevo contenido a la campaña')
   end
 end
