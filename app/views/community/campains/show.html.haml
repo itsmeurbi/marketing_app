@@ -1,52 +1,7 @@
+=link_to community_dashboard_path(@campain.id) do
+  = fa_icon("tachometer-alt 2x", text: "  Ir a dashboard")
 %h1
   = "Campaña: #{@campain.name}"
-.columns.is-flex.is-wrap.has-full-width.has-regular-padding-top
-  .column.is-12.has-border
-    .columns.is-flex.is-wrap.has-full-width
-      .column.is-one-quarter.is-half-mobile
-        .has-text-weight-semibold
-          Objetivo:
-        %p=@campain.objective
-
-      .column.is-one-quarter.is-half-mobile
-        .has-text-weight-semibold
-          Fecha de inicio:
-        %p#startDate=@campain.start_date
-
-      .column.is-one-quarter.is-half-mobile
-        .has-text-weight-semibold
-          Fecha de termino:
-        %p#endDate=@campain.end_date
-
-      .column.is-one-quarter.is-half-mobile
-        .has-text-weight-semibold
-          Tipo de campaña:
-        %p=@campain.campain_type
-
-      .column.is-one-quarter.is-half-mobile
-        .has-text-weight-semibold
-          Producto:
-        %p=@campain.product
-
-
-  .column.is-12.has-regular-padding-top{"data-controller": "community-campains-charts"}
-    .colums.is-centered.is-flex
-      .column
-        .columns
-          .column.has-border
-            Publicaciones
-            %div#postPublicationChart{"data-total-posts": "#{@campain.posts.count}",
-                                      "data-published-posts": "#{@campain.published_posts_number}",
-                                      "data-post-with-media": "#{@campain.number_of_post_with_media}",
-                                      "data-post-without-media": "#{@campain.number_of_post_without_media}" }
-      .column
-        .columns
-          .column.has-border
-            Progreso de la campaña
-            %div#campainProgressChart
-
-= render "charts", campain: @campain
-
 .column.is-12.has-regular-padding-top
   .column.is-12.has-border
     .columns.is-flex.is-wrap.has-full-width
