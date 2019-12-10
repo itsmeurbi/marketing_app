@@ -44,7 +44,7 @@ class User < ApplicationRecord
   validates :email, format: { with: VALID_EMAIL_REGEX }
 
   def self.admin_manage_roles
-    %i[rrhh finance client contact client_admin]
+    %i[rrhh finance contact]
   end
 
   def self.client_admin_role
