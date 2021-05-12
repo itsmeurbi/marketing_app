@@ -9,7 +9,7 @@
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.7",
     "axios": "^0.19.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "chartkick": "^3.2.0",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0",
